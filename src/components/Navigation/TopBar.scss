@@ -1,0 +1,15 @@
+.topbar-wrapper {
+    display: flex; 
+    align-items: center; 
+    box-shadow: 5px 5px 5px lightgray; 
+    width: 100%; 
+    background: white; 
+
+    .g2-logo {
+        width: 200px; 
+    }
+
+    .app-title {
+        color: #C5B9B9; 
+    }
+}

@@ -1,0 +1,11 @@
+.topnav-wrapper {
+    display: flex;
+    height: 50px; 
+    justify-content: center; 
+
+    .topnav-links {
+        text-decoration: none; 
+        margin: 1rem 1.25rem; 
+        color: #666666; 
+    }
+}
