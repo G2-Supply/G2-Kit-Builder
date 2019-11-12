@@ -7,11 +7,12 @@ import { Route } from 'react-router-dom';
 import './AppMain.scss'; 
 
 // component imports 
-
+import KitBuilder from '../KitBuilder/KitBuilder'; 
 
 const AppMain = () => {
     return ( 
         <div className="app-main-background">
+            <Route path='/kit-builder' component={KitBuilder}>Kit Builder</Route>
             {/* <Route path='/box-calculator' component={BoxCalculator} />
             <Route path='/saved-boxes' component={SavedBoxes} />
             <Route path='/products' component={Products} />

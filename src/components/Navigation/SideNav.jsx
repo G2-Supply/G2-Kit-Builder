@@ -13,6 +13,11 @@ const SideNav = (props) => {
     return ( 
         <div className="sidenav-wrapper">
             <p className="signout">Sign Out</p>
+            <NavLink className='side-links' activeClassName="active-side-links" to='/kit-builder'>Kit Builder >>
+                <p className="link-desc">
+                    - A tool for customers to build kits.
+                </p>
+            </NavLink>
             <NavLink className='side-links' to='/box-calculator'>Box Calculator >>
                 <p className="link-desc">
                     - An interactive way to determine
