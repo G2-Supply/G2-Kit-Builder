@@ -18,34 +18,9 @@ const SideNav = (props) => {
                     - A tool for customers to build kits.
                 </p>
             </NavLink>
-            <NavLink className='side-links' to='/box-calculator'>Box Calculator >>
+            <NavLink className='side-links' to='/saved-kits'>My Saved Kits >>
                 <p className="link-desc">
-                    - An interactive way to determine
-                    the square footage of corrugated
-                    boxes for pricing purposes.
-                </p>
-            </NavLink>
-            <NavLink className='side-links' to='/saved-boxes'>My Saved Boxes >>
-                <p className="link-desc">
-                    - A list of vendor and contact info for
-                    easy access.
-                </p>
-            </NavLink>
-            <NavLink className='side-links' to='/quote'>Quoting >>
-                <p className='link-desc'>
-                    - Easily send quotes to your choice of vendors.
-                </p>
-            </NavLink>
-            <NavLink className='side-links' to='/products'>Products >>
-                <p className="link-desc">
-                    - A searchable list of all of the 
-                    products we offer.
-                </p>
-            </NavLink>
-            <NavLink className='side-links' to='/vendor-list'>Vendor List >>
-                <p className="link-desc">
-                    - A list of vendor and contact info for 
-                    easy access.
+                    - A list of kits saved by the user for future reference.
                 </p>
             </NavLink>
         </div>

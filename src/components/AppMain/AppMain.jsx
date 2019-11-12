@@ -7,12 +7,16 @@ import { Route } from 'react-router-dom';
 import './AppMain.scss'; 
 
 // component imports 
+import Login from '../Login/Login'; 
+import SignUp from '../SignUp/SignUp'; 
 import KitBuilder from '../KitBuilder/KitBuilder'; 
 
 const AppMain = () => {
     return ( 
         <div className="app-main-background">
-            <Route path='/kit-builder' component={KitBuilder}>Kit Builder</Route>
+            <Route exact path="/" component={SignUp} />
+            <Route path="/login" component={Login} />
+            <Route path='/kit-builder' component={KitBuilder} />
             {/* <Route path='/box-calculator' component={BoxCalculator} />
             <Route path='/saved-boxes' component={SavedBoxes} />
             <Route path='/products' component={Products} />
