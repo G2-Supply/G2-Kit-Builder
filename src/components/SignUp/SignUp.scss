@@ -10,12 +10,13 @@
     .form-container {
         margin: 0 auto; 
         width: 60%; 
+        max-width: 500px; 
             
         .form-label {
             font-weight: bold; 
             font-size: 1rem; 
-            margin-top: 10rem;
-            margin-bottom: 5rem;  
+            margin-top: 1.5rem; 
+            margin-bottom: 1.5rem;   
 
             .form-input {
                 width: 100%; 
@@ -25,11 +26,32 @@
                 border: none; 
                 border-radius: 5px;
                 margin-top: .5rem; 
+                font-size: 1.6rem; 
+                padding-left: .5rem; 
+            }
+
+            .required-error {
+                margin-top: .5rem;
+                color: red; 
+                font-weight: 500; 
             }
         }
 
         .divider {
             height: 25px; 
+        }
+
+        .name-container {
+            display: flex; 
+
+            .form-label {
+                width: 50%; 
+
+                &:first-child {
+                    margin-right: 2rem;
+                    padding-right: -1rem;  
+                }
+            }
         }
 
         // .under-input {
@@ -57,7 +79,7 @@
         // }
 
         .signup-btn {
-            width: 100%; 
+            width: calc(100% + .5rem); 
             text-decoration: none;
             background: #5184DF; 
             color: white; 
@@ -67,12 +89,19 @@
             border: none; 
             border-radius: 5px; 
             margin-top: 2rem; 
+            cursor: pointer;
+
+            &:disabled {
+                background: #CCCCCC; 
+                color: white; 
+            }
         }
 
         .create-an-account {
             text-align: center; 
             font-size: 1.2rem; 
             margin-top: 1rem; 
+            cursor: pointer;
         }
 
     }

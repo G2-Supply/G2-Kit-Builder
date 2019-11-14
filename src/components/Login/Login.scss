@@ -10,6 +10,7 @@
     .form-container {
         margin: 0 auto; 
         width: 60%; 
+        max-width: 500px; 
             
         .form-label {
             font-weight: bold; 
@@ -25,6 +26,14 @@
                 border: none; 
                 border-radius: 5px;
                 margin-top: .5rem; 
+                font-size: 1.6rem;
+                padding-left: .5rem;  
+            }
+
+            .required-error {
+                margin-top: .5rem;
+                color: red; 
+                font-weight: 500; 
             }
         }
 
@@ -57,7 +66,7 @@
         }
 
         .login-btn {
-            width: 100%; 
+            width: calc(100% + .5rem); 
             text-decoration: none;
             background: #5184DF; 
             color: white; 
@@ -67,12 +76,19 @@
             border: none; 
             border-radius: 5px; 
             margin-top: 2rem; 
+            cursor: pointer;
+
+            &:disabled {
+                background: #CCCCCC; 
+                color: white; 
+            }
         }
 
         .create-an-account {
             text-align: center; 
             font-size: 1.2rem; 
             margin-top: 1rem; 
+            cursor: pointer;
         }
 
     }
