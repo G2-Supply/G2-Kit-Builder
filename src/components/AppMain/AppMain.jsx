@@ -10,13 +10,15 @@ import './AppMain.scss';
 import Login from '../Login/Login'; 
 import SignUp from '../SignUp/SignUp'; 
 import KitBuilder from '../KitBuilder/KitBuilder'; 
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
 
 const AppMain = () => {
     return ( 
-        <div className="app-main-background">
-            <Route exact path="/" component={SignUp} />
-            <Route path="/login" component={Login} />
+        <div className='app-main-background'>
+            <Route exact path='/' component={SignUp} />
+            <Route path='/login' component={Login} />
             <Route path='/kit-builder' component={KitBuilder} />
+            <Route path='/account-recovery' component={ForgotPassword} />
             {/* <Route path='/box-calculator' component={BoxCalculator} />
             <Route path='/saved-boxes' component={SavedBoxes} />
             <Route path='/products' component={Products} />

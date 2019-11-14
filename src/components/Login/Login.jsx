@@ -74,6 +74,14 @@ const Login = (props) => {
                     <input type="password" className="form-input" onChange={handleChange} name='password' value={user.password} onBlur={toggleTouched} />
                     {user.password === '' && touched.password === true ? <p className='required-error'>Password is a required field.</p> : null}
                 </label>
+                <div className="under-input">
+                    <div className="remember-me-container">
+                        <label className="remember-me-label">Remember Me
+                            <input type="checkbox" className="checkbox"/>
+                        </label>
+                    </div>
+                    <p className="forgot-password" onClick={() => props.history.push('/account-recovery')}><u>Forgot Password?</u></p>
+                </div>
                 {isLoading ? 
                     <button className="login-btn">
                         <Loader
