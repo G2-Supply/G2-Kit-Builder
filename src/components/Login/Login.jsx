@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // library imports 
 import axios from 'axios'; 
@@ -23,6 +23,15 @@ const Login = (props) => {
         success: false,
         failure: false
     })
+
+    // if the user is already logged in, we want to push them back to kit-builder
+    useEffect(() => {
+        const token = localStorage.getItem('token'); 
+
+        if(token) {
+            props.history.push('/kit-builder'); 
+        }
+    }, [])
 
     // updating the state every time the user adds new information to the fields 
     const handleChange = (e) => {
@@ -68,14 +77,13 @@ const Login = (props) => {
                 }, 3000)
             })
             .catch(err => {
+                setMessages({
+                    ...messages,
+                    failure: true,
+                })
                 setTimeout(() => {
-                    setIsLoading(false)
-                    setMessages({
-                        ...messages,
-                        failure: true,
-                    })
+                    setIsLoading(false); 
                 }, 3000); 
-                console.log(err); 
             }); 
     }
 

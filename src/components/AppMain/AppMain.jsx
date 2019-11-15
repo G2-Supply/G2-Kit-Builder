@@ -19,11 +19,6 @@ const AppMain = () => {
             <Route path='/login' component={Login} />
             <Route path='/kit-builder' component={KitBuilder} />
             <Route path='/account-recovery' component={ForgotPassword} />
-            {/* <Route path='/box-calculator' component={BoxCalculator} />
-            <Route path='/saved-boxes' component={SavedBoxes} />
-            <Route path='/products' component={Products} />
-            <Route path='/vendor-list' component={VendorList} />
-            <Route path='/quote' component={Quoting} /> */}
         </div>
      );
 }

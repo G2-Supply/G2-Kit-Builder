@@ -7,7 +7,7 @@ import SideNav from './components/Navigation/SideNav';
 import TopNav from './components/Navigation/TopNav';
 import AppMain from './components/AppMain/AppMain'; 
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <TopBar /> 

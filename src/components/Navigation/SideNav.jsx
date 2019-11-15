@@ -1,18 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; 
+import { NavLink, withRouter } from 'react-router-dom'; 
 
 // styling import
 import './SideNav.scss'
 
 const SideNav = (props) => {
+    const token = localStorage.getItem('token'); 
 
-    // function signOut() {
-    //     localStorage.removeItem('token'); 
-    //     props.history.push('/login'); 
-    // }
+    const signOut = () => {
+        localStorage.removeItem('token');
+        props.history.push('/login'); 
+    }
+
+    const login = () => {
+        props.history.push('/login'); 
+    }
+
     return ( 
         <div className="sidenav-wrapper">
-            <p className="signout">Sign Out</p>
+            {!token ? <p className="signout" onClick={login}>Login</p> : <p onClick={signOut} className="signout">Sign Out</p>}
             <NavLink className='side-links' activeClassName="active-side-links" to='/kit-builder'>Kit Builder >>
                 <p className="link-desc">
                     - A tool for customers to build kits.
@@ -27,4 +33,4 @@ const SideNav = (props) => {
      );
 }
  
-export default SideNav;
+export default withRouter(SideNav);

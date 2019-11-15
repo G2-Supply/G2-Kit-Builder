@@ -48,10 +48,19 @@
             margin-top: .5rem; 
             font-size: .8rem; 
 
+            @media (max-width: 600px) {
+                flex-direction: column;
+            }
+
             .remember-me-container {
                 display: flex; 
                 // justify-content: space-between;
                 align-items: center;
+
+                @media (max-width: 600px) {
+                    justify-content: center;
+                    margin-top: .5rem; 
+                }
 
                 .remember-me-label {
                     display: flex; 
@@ -63,6 +72,11 @@
             .forgot-password {
                 margin-top: .2rem; 
                 cursor: pointer;
+
+                @media (max-width: 600px) {
+                    text-align: center; 
+                    margin-top: 1.5rem; 
+                }
             }
         }
 
@@ -90,6 +104,10 @@
             border-radius: 5px; 
             margin-top: 2rem; 
             cursor: pointer;
+
+            @media (max-width: 600px) {
+                margin-top: 1.5rem;    
+            }
 
             &:disabled {
                 background: #CCCCCC; 
