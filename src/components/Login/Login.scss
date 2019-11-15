@@ -66,6 +66,18 @@
             }
         }
 
+        .messages {
+            text-align: center; 
+            font-size: 1rem; 
+            color: red;
+            margin: 1.5rem auto -1.5rem; 
+        }
+
+        .messages-success {
+            color: black; 
+            font-weight: bold; 
+        }
+
         .login-btn {
             width: calc(100% + .5rem); 
             text-decoration: none;

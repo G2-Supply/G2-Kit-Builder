@@ -18,6 +18,12 @@ const Login = (props) => {
     // using a hook to handle Loading state
     const [ isLoading, setIsLoading ] = useState(false); 
 
+    // hook to determine success as failure of the request
+    const [ messages, setMessages ] = useState({
+        success: false,
+        failure: false
+    })
+
     // updating the state every time the user adds new information to the fields 
     const handleChange = (e) => {
         setUser({
@@ -50,13 +56,25 @@ const Login = (props) => {
         setIsLoading(true); 
 
         // POSTing the new user when the user submits, using either the API url or localhost (for testing) 
-        axios.post('http://localhost:5000/api/login', user)
+        axios.post('http://localhost:5000/api/users/login', user)
             .then(res => {
-                localStorage.setItem(res.data.token); 
-                props.history.push('/kit-builder'); 
+                setMessages({
+                    ...messages,
+                    success: true,
+                })
+                localStorage.setItem('token', res.data.token); 
+                setTimeout(() => {
+                    props.history.push('/kit-builder'); 
+                }, 3000)
             })
             .catch(err => {
-                setIsLoading(false); 
+                setTimeout(() => {
+                    setIsLoading(false)
+                    setMessages({
+                        ...messages,
+                        failure: true,
+                    })
+                }, 3000); 
                 console.log(err); 
             }); 
     }
@@ -66,7 +84,7 @@ const Login = (props) => {
             <h1 className="login-heading">Login</h1>
             <form className="form-container" onSubmit={handleSubmit} >
                 <label className="form-label">Email<br /> 
-                    <input type="text" className="form-input" onChange={handleChange} name='email' value={user.email} onBlur={toggleTouched} />
+                    <input type="email" className="form-input" onChange={handleChange} name='email' value={user.email} onBlur={toggleTouched} />
                     {user.email === '' && touched.email === true ? <p className='required-error'>Email is a required field.</p> : null}
                 </label>
                 <div className="divider"></div>
@@ -82,6 +100,8 @@ const Login = (props) => {
                     </div>
                     <p className="forgot-password" onClick={() => props.history.push('/account-recovery')}><u>Forgot Password?</u></p>
                 </div>
+                {messages.success ? <h2 className="messages messages-success">Login Successful.  Welcome back!</h2> : null }
+                {messages.failure ? <h2 className="messages">Login Failed.  Please check your credentials.</h2> : null }
                 {isLoading ? 
                     <button className="login-btn">
                         <Loader
