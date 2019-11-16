@@ -6,6 +6,12 @@
     flex-direction: column; 
     height: 100vh;  
 
+    @media (max-width: 850px) {
+        flex-direction: row; 
+        height: 75px; 
+        width: 100%; 
+    }
+
     .signout {
         text-decoration: underline; 
         margin: 0 auto; 
@@ -17,6 +23,10 @@
         &:hover {
             cursor: pointer;
         }
+
+        @media (max-width: 850px) {
+            display: none; 
+        }
     }
 
     .side-links {
@@ -24,6 +34,10 @@
         color: white; 
         text-decoration: none;
         font-size: 1.6rem; 
+
+        @media (max-width: 850px) {
+            margin: 1.5rem 2rem;
+        }
 
         &:hover {
           text-decoration: underline;   
@@ -34,6 +48,10 @@
             font-size: .8rem;
             font-weight: 400; 
 
+            @media (max-width: 850px) {
+                display: none; 
+            }
+
             &:hover {
                 text-decoration: none;
             }
@@ -42,6 +60,33 @@
 
     .active-side-links {
         text-decoration: none;
+
+        @media (max-width: 850px) {
+            display: none; 
+        }
     }
+
+    // .hamburger-icon {
+    //     display: none; 
+
+    //     @media (max-width: 850px) {
+    //         fill: white; 
+    //         display: flex;
+    //         position: relative;  
+    //         right: 20px; 
+    //         width: 50px; 
+    //         height: 50px; 
+    //         margin-top: 20px; 
+    //     }
+        
+    // }
+
+    // .hamburger-menu { 
+    //     display: none; 
+
+    //     @media (max-width: 850px) {
+    //         display: flex; 
+    //     }
+    // }
      
 }

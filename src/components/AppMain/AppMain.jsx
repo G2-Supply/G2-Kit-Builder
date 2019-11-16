@@ -17,7 +17,7 @@ const AppMain = () => {
         <div className='app-main-background'>
             <Route exact path='/' component={SignUp} />
             <Route path='/login' component={Login} />
-            <Route path='/kit-builder' component={KitBuilder} />
+            <Route path='/home' component={KitBuilder} />
             <Route path='/account-recovery' component={ForgotPassword} />
         </div>
      );

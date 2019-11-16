@@ -79,6 +79,10 @@ input[type=search] {
 		justify-content: right; 
 		width: 100%; 
 
+		@media (max-width: 850px) {
+			flex-direction: column;
+		}
+
 		.main-div {
 			width: 100%; 
 			display: flex; 
