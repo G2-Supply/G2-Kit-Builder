@@ -34,6 +34,11 @@ const SideNav = (props) => {
                     - A list of kits saved by the user for future reference.
                 </p>
             </NavLink>
+            {token ? <NavLink className='side-links' to='/profile'>Profile
+                <p className="link-desc">
+                    - A page to edit account information.
+                </p>
+            </NavLink> : null}
         </div>
     );
 }
