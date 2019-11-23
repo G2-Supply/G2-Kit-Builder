@@ -3,7 +3,6 @@ import { NavLink, withRouter } from 'react-router-dom';
 
 // styling/image import
 import './SideNav.scss'
-import Hamburger from '../../assets/icons/hamburger-menu.svg'; 
 
 const SideNav = (props) => {
     // logic for the hamburger menu
@@ -24,7 +23,7 @@ const SideNav = (props) => {
     return ( 
         <div className="sidenav-wrapper">
             {!token ? <p className="signout" onClick={login}>Login</p> : <p onClick={signOut} className="signout">Sign Out</p>}
-            <NavLink className='side-links' activeClassName="active-side-links" to='/home'>Home
+            <NavLink className='side-links' activeClassName="active-side-links" to='/design-your-pallet'>Home
                 <p className="link-desc">
                     - A tool for customers to build kits.
                 </p>
