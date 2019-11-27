@@ -1,0 +1,73 @@
+.design-your-pallet-container {
+
+    h1 {
+        text-align: center; 
+        font-size: 2.4rem;
+        margin-top: 3rem; 
+    }
+
+    .form-minimizer-container {
+        display: flex; 
+        margin: 0 auto; 
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: .5rem; 
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .top-form {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 3rem;
+
+        .form-label {
+            font-weight: bold; 
+            font-size: 1rem; 
+            margin-top: 1.5rem; 
+            margin-bottom: 1.5rem;   
+
+            .form-input { 
+                width: 17rem;
+                height: 35px; 
+                background: #EEEEEE; 
+                text-decoration: none;
+                border: none; 
+                border-radius: 5px;
+                margin-top: .5rem; 
+                font-size: 1rem; 
+                padding-left: .5rem;  
+            }
+        }
+    }
+
+    .middle-form {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 3rem;
+        width: 100%; 
+
+        .form-label {
+            font-weight: bold; 
+            font-size: 1rem; 
+            margin-bottom: 1.5rem;   
+
+            .form-input {
+                width: 300px; 
+                height: 35px; 
+                background: #EEEEEE; 
+                text-decoration: none;
+                border: none; 
+                border-radius: 5px;
+                margin-top: .5rem; 
+                font-size: 1rem; 
+                padding-left: .5rem; 
+            }
+        }
+    }
+}

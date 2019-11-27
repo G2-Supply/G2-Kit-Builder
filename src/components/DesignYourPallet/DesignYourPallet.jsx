@@ -3,14 +3,14 @@ import React from 'react';
 // library imports
 
 // stylesheet imports
-import './DesignYourPallet'; 
+import './DesignYourPallet.scss'; 
 
 // image imports 
-import Model from '../../assets/icons/hamburger-menu.svg'; 
+import Model from '../../assets/images/pallet-placeholder.png'; 
 
 const DesignYourPallet = () => {
     return ( 
-        <>
+        <div className="design-your-pallet-container">
             <h1>Step 1 - Design Your Pallet</h1>
             <div className="form-minimizer-container">
                 <h4>I don't need one</h4>
@@ -39,18 +39,34 @@ const DesignYourPallet = () => {
                         <option value="">120" (10 Feet)</option>
                     </select>
                 </label>
-                <label className="form-label">Qty. of Runners<br />
+                <label className="form-label">Qty. of Runners<br/>
                     <input type="number" name="runner-quantity" className="form-input" />
                 </label>
             </div>
-            <div className="middle-form">
-                <label className="form-label">Side Access<br />
-                    <select name="side-access" className="form-input">
+            {/* <div className="middle-form">
+                <label className="form-label">Side Access<br /></label>
+                <select name="side-access" className="form-input">
                         <option value="">Select Option</option>
                         <option value="">Yes</option>
                         <option value="">No</option>
-                    </select>
-                </label>
+                </select>
+                <label className="form-label" htmlFor="wood-quality">Wood Quality<br /></label>
+                <select name="wood-quality" className="form-input">
+                        <option value="">Select Option</option>
+                        <option value="">Heat Treated</option>
+                        <option value="">Green Rough</option>
+                </select>
+            </div> */}
+            <div className="middle-form">
+                <div className="testing">
+                    <label className="form-label">Side Access<br />
+                        <select name="side-access" className="form-input">
+                            <option value="">Select Option</option>
+                            <option value="">Yes</option>
+                            <option value="">No</option>
+                        </select>
+                    </label>
+                </div>
                 <label className="form-label">Wood Quality<br />
                     <select name="wood-quality" className="form-input">
                         <option value="">Select Option</option>
@@ -58,6 +74,7 @@ const DesignYourPallet = () => {
                         <option value="">Green Rough</option>
                     </select>
                 </label>
+            </div>
                 <div className="bottom-container">
                     <div>
                         <label className="form-label">Upload File<br />
@@ -69,7 +86,6 @@ const DesignYourPallet = () => {
                     </div>
                     <img src={Model} alt="pallet model"/>
                 </div>
-            </div>
             <h2>Deck Board Specifications</h2>
             <div className="top-form">
                 <label className="form-label">Style of Top Boards<br />
@@ -124,7 +140,13 @@ const DesignYourPallet = () => {
                     <img src={Model} alt="pallet model"/>
                 </div>
             </div>
-        </>
+            <label className="form-label">Required Pallet Certifications<br />
+                <select name="style-of-top-boards" className="form-input">
+                    <option value="">Select Option</option>
+                    <option value="">Export Stamped</option>
+                </select>
+            </label>
+        </div>
      );
 }
  
