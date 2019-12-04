@@ -11,14 +11,16 @@ import Model from '../../assets/images/pallet-placeholder.png';
 const DesignYourPallet = () => {
     // setting up form state
     const [ form, setForm ] = useState({
-        minimizer: '',
         styleOfRunner: '',
         lengthOfRunner: '',
         qtyOfRunners: '',
         sideAccess: '',
         woodQuality: '',
         requiredPalletCertifications: '',
-        specialNotes: ''
+        specialNotes: '',
+        styleOfTopBoards: '', 
+        qtyOfTopBoards: '',
+        lengthOfDeckBoards: '',
     })
 
     const changeHandler = (e) => {
@@ -41,7 +43,7 @@ const DesignYourPallet = () => {
                 <div className="style-of-runner-container line-1-input">
                     <label htmlFor="style-of-runner" className="form-label">Style of Runner<br /></label>
                     <input type="text" list="style-of-runner" className="form-input" name="styleOfRunner" onChange={changeHandler} />
-                    <datalist name="style-of-runner" className="form-label" id="style-of-runner">
+                    <datalist name="styleOfRunner" className="form-label" id="style-of-runner">
                         <option value={form.styleOfRunner}>4" X 4"</option>
                         <option value={form.styleOfRunner}>2" X 4"</option>
                     </datalist>
@@ -49,7 +51,7 @@ const DesignYourPallet = () => {
                 <div className="length-of-runner-container line-1-input">
                     <label htmlFor="length-of-runner" className="form-label">Length of Runner<br /></label>
                     <input type="text" list="length-of-runner" className="form-input" name="lengthOfRunner" onChange={changeHandler} value={form.lengthOfRunner} />
-                    <datalist name="length-of-runner" className="form-label" id="length-of-runner">
+                    <datalist name="lengthOfRunner" className="form-label" id="length-of-runner">
                         <option value={form.lengthOfRunner}>24"</option>
                         <option value={form.lengthOfRunner}>36"</option>
                         <option value={form.lengthOfRunner}>48"</option>
@@ -95,150 +97,43 @@ const DesignYourPallet = () => {
                     </div>
                     <div className="special-notes-container">
                         <label htmlFor="special-notes" className="form-label">Special Notes<br /></label>
-                        <textarea name="specialNotes" className="form-input" id="special-notes" cols="30" rows="10" onChange={changeHandler}></textarea>
+                        <textarea name="specialNotes" className="form-input" id="special-notes" cols="30" rows="10" onChange={changeHandler} placeholder="Add any additional information about the pallet runners."></textarea>
                     </div>
 
                 </div>
                 <img src={Model} alt="3d model of the pallet being created" />
             </div>
+            <h2 className="runner-specifications">Deck Board Specifications</h2>
+            <div className="line-5">
+                <div className="style-of-top-boards line-5-input">
+                    <label htmlFor="style-of-top-boards" className="form-label">Style of Top Boards<br /></label>
+                    <input type="text" list="style-of-top-boards" className="form-input" name="styleOfRunner" onChange={changeHandler} />
+                    <datalist name="styleOfTopBoards" className="form-label" id="style-of-top-boards">
+                        <option value={form.styleOfTopBoards}>4" X 7/16"</option>
+                        <option value={form.styleOfTopBoards}>4" X 1"</option>
+                        <option value={form.styleOfTopBoards}>6" X 7/16</option>
+                        <option value={form.styleOfTopBoards}>6" X 1"</option>
+                    </datalist>
+                </div>
+                <div className="qty-of-top-boards line-5-input">
+                    <label htmlFor="qty-of-top-boards" className="form-label">Qty. of Top Boards<br /></label>
+                    <input type="number" list="qty-of-top-boards" className="form-input" name="qtyOfTopBoards" onChange={changeHandler} value={form.lengthOfRunner} />
+                </div>
+                <div className="length-of-deck-boards-container line-5-input">
+                    <label htmlFor="length-of-deck-boards" className="form-label">Length of Deck Boards<br /></label>
+                    <input type="text" list="length-of-deck-boards" className="form-input" name="lengthOfDeckBoards" onChange={changeHandler} value={form.lengthOfDeckBoards} />
+                    <datalist name="lengthOfDeckBoards" className="form-label" id="length-of-deck-boards">
+                        <option value={form.lengthOfDeckBoards}>40"</option>
+                        <option value={form.lengthOfDeckBoards}>42"</option>
+                        <option value={form.lengthOfDeckBoards}>45"</option>
+                        <option value={form.lengthOfDeckBoards}>48"</option>
+                        <option value={form.lengthOfDeckBoards}>54"</option>
+                        <option value={form.lengthOfDeckBoards}>68"</option>
+                    </datalist>
+                </div>
+            </div>
         </div> 
-        // <div className="design-your-pallet-container">
-        //     <h1>Step 1 - Design Your Pallet</h1>
-        //     <div className="form-minimizer-container">
-        //         <h4>I don't need one</h4>
-        //         <input type="checkbox" className="form-input" />
-        //     </div>
-        //     <h2>Runner Specifications</h2>
-        //     <div className="top-form">
-        //         <label className="form-label">Style of Runner<br />
-        //             <select name="style-of-runner" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">2" X 4"</option>
-        //                 <option value="">4" X 4"</option>
-        //             </select>
-        //         </label>
-        //         <label className="form-label">Length of Runner<br />
-        //             <select name="length-of-runner" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">24" (2 Feet)</option>
-        //                 <option value="">36" (3 Feet)</option>
-        //                 <option value="">48" (4 Feet)</option>
-        //                 <option value="">60" (5 Feet)</option>
-        //                 <option value="">72" (6 Feet)</option>
-        //                 <option value="">84" (7 Feet)</option>
-        //                 <option value="">96" (8 Feet)</option>
-        //                 <option value="">108" (9 Feet)</option>
-        //                 <option value="">120" (10 Feet)</option>
-        //             </select>
-        //         </label>
-        //         <label className="form-label">Qty. of Runners<br/>
-        //             <input type="number" name="runner-quantity" className="form-input" />
-        //         </label>
-        //     </div>
-        //     {/* <div className="middle-form">
-        //         <label className="form-label">Side Access<br /></label>
-        //         <select name="side-access" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">Yes</option>
-        //                 <option value="">No</option>
-        //         </select>
-        //         <label className="form-label" htmlFor="wood-quality">Wood Quality<br /></label>
-        //         <select name="wood-quality" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">Heat Treated</option>
-        //                 <option value="">Green Rough</option>
-        //         </select>
-        //     </div> */}
-        //     <div className="middle-form">
-        //         <div className="testing">
-        //             <label className="form-label">Side Access<br />
-        //                 <select name="side-access" className="form-input">
-        //                     <option value="">Select Option</option>
-        //                     <option value="">Yes</option>
-        //                     <option value="">No</option>
-        //                 </select>
-        //             </label>
-        //         </div>
-        //         <label className="form-label">Wood Quality<br />
-        //             <select name="wood-quality" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">Heat Treated</option>
-        //                 <option value="">Green Rough</option>
-        //             </select>
-        //         </label>
-        //     </div>
-        //         <div className="bottom-container">
-        //             <div>
-        //                 <label className="form-label">Upload File<br />
-        //                     <input type="file" name="upload" className="form-input"/>
-        //                 </label>
-        //                 <label className="form-label">Special Notes<br />
-        //                     <textarea name="special-notes" cols="30" rows="10" className="form-input"></textarea>
-        //                 </label>
-        //             </div>
-        //             <img src={Model} alt="pallet model"/>
-        //         </div>
-        //     <h2>Deck Board Specifications</h2>
-        //     <div className="top-form">
-        //         <label className="form-label">Style of Top Boards<br />
-        //             <select name="style-of-top-boards" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">2" X 4"</option>
-        //                 <option value="">4" X 4"</option>
-        //             </select>
-        //         </label>
-        //         <label className="form-label">Length of Runner<br />
-        //             <select name="length-of-runner" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">24" (2 Feet)</option>
-        //                 <option value="">36" (3 Feet)</option>
-        //                 <option value="">48" (4 Feet)</option>
-        //                 <option value="">60" (5 Feet)</option>
-        //                 <option value="">72" (6 Feet)</option>
-        //                 <option value="">84" (7 Feet)</option>
-        //                 <option value="">96" (8 Feet)</option>
-        //                 <option value="">108" (9 Feet)</option>
-        //                 <option value="">120" (10 Feet)</option>
-        //             </select>
-        //         </label>
-        //         <label className="form-label">Qty. of Runners<br />
-        //             <input type="number" name="runner-quantity" className="form-input" />
-        //         </label>
-        //     </div>
-        //     <div className="middle-form">
-        //         <label className="form-label">Side Access<br />
-        //             <select name="side-access" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">Yes</option>
-        //                 <option value="">No</option>
-        //             </select>
-        //         </label>
-        //         <label className="form-label">Wood Quality<br />
-        //             <select name="wood-quality" className="form-input">
-        //                 <option value="">Select Option</option>
-        //                 <option value="">Heat Treated</option>
-        //                 <option value="">Green Rough</option>
-        //             </select>
-        //         </label>
-        //         <div className="bottom-container">
-        //             <div>
-        //                 <label className="form-label">Upload File<br />
-        //                     <input type="file" name="upload" className="form-input"/>
-        //                 </label>
-        //                 <label className="form-label">Special Notes<br />
-        //                     <textarea name="special-notes" cols="30" rows="10" className="form-input"></textarea>
-        //                 </label>
-        //             </div>
-        //             <img src={Model} alt="pallet model"/>
-        //         </div>
-        //     </div>
-        //     <label className="form-label">Required Pallet Certifications<br />
-        //         <select name="style-of-top-boards" className="form-input">
-        //             <option value="">Select Option</option>
-        //             <option value="">Export Stamped</option>
-        //         </select>
-        //     </label>
-        // </div>
+        
      );
 }
  

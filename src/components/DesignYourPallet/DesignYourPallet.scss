@@ -88,6 +88,7 @@
                 margin-top: .5rem; 
                 font-size: 1.6rem; 
                 padding-left: .5rem; 
+                margin-bottom: 1.5rem;
             }
         }
     }
@@ -98,11 +99,86 @@
         .line-3-line-4-container {
             width: 50%; 
 
-            
+            .required-pallet-certifications-container {
+                
+                .form-label {
+                    font-weight: bold; 
+                    font-size: 1rem; 
+                    margin-top: 3rem; 
+                }
+
+                .form-input {
+                    width: 96%; 
+                    height: 50px;
+                    background: #EEEEEE; 
+                    text-decoration: none;
+                    border: none; 
+                    border-radius: 5px;
+                    margin-top: .5rem; 
+                    font-size: 1.6rem; 
+                    padding-left: .5rem; 
+                    margin-bottom: 1.5rem;
+                }
+            }
+
+            .special-notes-container {
+                
+                .form-label {
+                    font-weight: bold; 
+                    font-size: 1rem; 
+                    margin-top: 3rem; 
+                }
+
+                .form-input {
+                    width: 93%; 
+                    height: 150px; 
+                    background: #EEEEEE; 
+                    text-decoration: none;
+                    border: none; 
+                    border-radius: 5px;
+                    margin-top: .5rem; 
+                    font-size: 1.6rem; 
+                    padding-left: .5rem; 
+                }
+            }
         }
+    
 
         img {
             width: 50%; 
+        }
+
+    }
+
+    .line-5 {
+        display: flex; 
+        margin: 0 auto;
+        width: 100%; 
+        justify-content: space-between;
+        margin-top: 1.5rem;
+
+        .line-5-input { 
+            width: 30%; 
+
+            .form-label {
+                font-weight: bold; 
+                font-size: 1rem; 
+                margin-top: 1.5rem; 
+                margin-bottom: 1.5rem; 
+            }
+
+            .form-input {
+                width: 100%; 
+                height: 50px;
+                background: #EEEEEE; 
+                text-decoration: none;
+                border: none; 
+                border-radius: 5px;
+                margin-top: .5rem; 
+                font-size: 1.6rem; 
+                padding-left: .5rem; 
+                margin-bottom: 1.5rem;
+            }
         }
     }
 }
