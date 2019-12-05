@@ -7,21 +7,25 @@ import './DesignYourPallet.scss';
 
 // image imports 
 import Model from '../../assets/images/pallet-placeholder.png'; 
+import { tsPropertySignature } from '@babel/types';
 
-const DesignYourPallet = () => {
+const DesignYourPallet = (props) => {
     // setting up form state
     const [ form, setForm ] = useState({
         styleOfRunner: '',
         lengthOfRunner: '',
         qtyOfRunners: '',
         sideAccess: '',
-        woodQuality: '',
+        runnerWoodQuality: '',
         requiredPalletCertifications: '',
-        specialNotes: '',
+        runnerSpecialNotes: '',
         styleOfTopBoards: '', 
         qtyOfTopBoards: '',
         lengthOfDeckBoards: '',
         styleOfBottomBoards: '',
+        qtyOfBottomBoards: '',
+        deckBoardWoodQuality: '',
+        deckBoardSpecialNotes: '',
     })
 
     const changeHandler = (e) => {
@@ -35,13 +39,8 @@ const DesignYourPallet = () => {
     return (
         <div className="design-your-pallet-container">
             <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>
-            <div className="input-wrapper">
-                <label htmlFor="minimizer" className="form-label">Skip this step</label>
-                <input type="checkbox" 
-                    className="label-input" 
-                    name="minimizer" 
-                    id="minimizer" 
-                    onChange={changeHandler} />
+            <div className="button-container skip">
+                <button className="next-step" id="skip">Skip This Step</button>
             </div>
             <h2 className="runner-specifications">Runner Specifications</h2>
             <div className="line-1">
@@ -95,8 +94,8 @@ const DesignYourPallet = () => {
                     </select>
                 </div>
                 <div className="wood-quality-container line-2-input">
-                    <label htmlFor="wood-quality" className="form-label">Wood Quality<br /></label>
-                    <select name="woodQuality" className="form-input" id="wood-quality" onChange={changeHandler}>
+                    <label htmlFor="runner-wood-quality" className="form-label">Runner Wood Quality<br /></label>
+                    <select name="runnerWoodQuality" className="form-input" id="runner-wood-quality" onChange={changeHandler}>
                         <option>Select an option</option>
                         <option value="Heat Treated">Heat Treated</option>
                         <option value="Green Rough">Green Rough</option>
@@ -122,12 +121,13 @@ const DesignYourPallet = () => {
                         </select>
                     </div>
                     <div className="special-notes-container">
-                        <label htmlFor="special-notes" className="form-label">Special Notes<br /></label>
-                        <textarea name="specialNotes" 
+                        <label htmlFor="runner-special-notes" className="form-label">Special Notes for Runner<br /></label>
+                        <textarea name="runnerSpecialNotes" 
                             className="form-input" 
-                            id="special-notes" cols="30" 
+                            id="runner-special-notes" cols="30" 
                             rows="10" 
                             onChange={changeHandler} 
+                            value={form.runnerSpecialNotes}
                             placeholder="Add any additional information about the pallet runners.">
                         </textarea>
                     </div>
@@ -135,11 +135,15 @@ const DesignYourPallet = () => {
                 </div>
                 <img src={Model} alt="3d model of the pallet being created" />
             </div>
-            <h2 className="runner-specifications">Deck Board Specifications</h2>
+            <h2 className="deck-board-specifications runner-specifications">Deck Board Specifications</h2>
             <div className="line-5">
                 <div className="style-of-top-boards line-5-input">
                     <label htmlFor="style-of-top-boards" className="form-label">Style of Top Boards<br /></label>
-                    <input type="text" list="style-of-top-boards" className="form-input" name="styleOfTopBoards" onChange={changeHandler} />
+                    <input type="text" 
+                        list="style-of-top-boards" 
+                        className="form-input" 
+                        name="styleOfTopBoards" 
+                        onChange={changeHandler} />
                     <datalist name="styleOfTopBoards" className="form-label" id="style-of-top-boards">
                         <option value='4" X 7/16"'>4" X 7/16"</option>
                         <option value='4" X 1"'>4" X 1"</option>
@@ -149,11 +153,21 @@ const DesignYourPallet = () => {
                 </div>
                 <div className="qty-of-top-boards line-5-input">
                     <label htmlFor="qty-of-top-boards" className="form-label">Qty. of Top Boards<br /></label>
-                    <input type="number" list="qty-of-top-boards" className="form-input" name="qtyOfTopBoards" onChange={changeHandler} value={form.qtyOfTopBoards} />
+                    <input type="number" 
+                        list="qty-of-top-boards" 
+                        className="form-input" 
+                        name="qtyOfTopBoards" 
+                        onChange={changeHandler} 
+                        value={form.qtyOfTopBoards} />
                 </div>
                 <div className="length-of-deck-boards-container line-5-input">
                     <label htmlFor="length-of-deck-boards" className="form-label">Length of Deck Boards<br /></label>
-                    <input type="text" list="length-of-deck-boards" className="form-input" name="lengthOfDeckBoards" onChange={changeHandler} value={form.lengthOfDeckBoards} />
+                    <input type="text" 
+                        list="length-of-deck-boards" 
+                        className="form-input" 
+                        name="lengthOfDeckBoards" 
+                        onChange={changeHandler} 
+                        value={form.lengthOfDeckBoards} />
                     <datalist name="lengthOfDeckBoards" className="form-label" id="length-of-deck-boards">
                         <option value='40"'>40"</option>
                         <option value='42"'>42"</option>
@@ -164,10 +178,15 @@ const DesignYourPallet = () => {
                     </datalist>
                 </div>
             </div>
-            <div className="line-6">
-                <div className="style-of-bottom-boards line-6-input">
+            <div className="line-5">
+                <div className="style-of-bottom-boards line-5-input">
                     <label htmlFor="style-of-bottom-boards" className="form-label">Style of Bottom Boards<br /></label>
-                    <input type="text" list="style-of-bottom-boards" className="form-input" name="styleOfBottomBoards" value={form.styleOfBottomBoards} onChange={changeHandler} />
+                    <input type="text" 
+                        list="style-of-bottom-boards" 
+                        className="form-input" 
+                        name="styleOfBottomBoards" 
+                        value={form.styleOfBottomBoards} 
+                        onChange={changeHandler} />
                     <datalist className="form-label" id="style-of-bottom-boards">
                         <option value='4" X 7/16"'>4" X 7/16"</option>
                         <option value='4" X 1"'>4" X 1"</option>
@@ -175,6 +194,48 @@ const DesignYourPallet = () => {
                         <option value='6" X 1"'>6" X 1"</option>
                     </datalist>
                 </div>
+                <div className="qty-of-bottom-boards line-5-input">
+                    <label htmlFor="qty-of-bottom-boards" className="form-label">Qty. of Bottom Boards<br /></label>
+                    <input type="number" 
+                        list="qty-of-bottom-boards" 
+                        className="form-input" 
+                        name="qtyOfBottomBoards" 
+                        onChange={changeHandler} 
+                        value={form.qtyOfBottomBoards} />
+                </div>
+                <div className="wood-quality-container line-5-input">
+                    <label htmlFor="deck-board-wood-quality" className="form-label">Deck Board Wood Quality<br /></label>
+                    <select name="deckBoardWoodQuality" 
+                        className="form-input" 
+                        id="deck-board-wood-quality" 
+                        onChange={changeHandler}
+                        value={form.deckBoardWoodQuality}>
+                        <option>Select an option</option>
+                        <option value="Heat Treated">Heat Treated</option>
+                        <option value="Green Rough">Green Rough</option>
+                    </select>
+                </div>
+            </div>
+            <div className="bottom-container">
+                <div className="line-3-line-4-container">
+
+                    <div className="special-notes-container">
+                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes<br /></label>
+                        <textarea name="deckBoardSpecialNotes" 
+                            className="form-input" 
+                            id="special-notes" cols="30" 
+                            rows="10" 
+                            onChange={changeHandler} 
+                            value={form.deckBoardSpecialNotes}
+                            placeholder="Add any additional information about the pallet runners.">
+                        </textarea>
+                    </div>
+
+                </div>
+                <img src={Model} alt="3d model of the pallet being created" />
+            </div>
+            <div className="button-container">
+                <button className="next-step" onClick={() => props.history.push('/design-your-box')}>Save and Continue</button>
             </div>
         </div> 
         
