@@ -88,6 +88,7 @@
                 margin-top: .5rem; 
                 font-size: 1.6rem; 
                 padding-left: .5rem; 
+                margin-bottom: 1.5rem;
             }
         }
     }
@@ -98,87 +99,114 @@
         .line-3-line-4-container {
             width: 50%; 
 
-            
+            .required-pallet-certifications-container {
+                
+                .form-label {
+                    font-weight: bold; 
+                    font-size: 1rem; 
+                    margin-top: 3rem; 
+                }
+
+                .form-input {
+                    width: 96%; 
+                    height: 50px;
+                    background: #EEEEEE; 
+                    text-decoration: none;
+                    border: none; 
+                    border-radius: 5px;
+                    margin-top: .5rem; 
+                    font-size: 1.6rem; 
+                    padding-left: .5rem; 
+                    margin-bottom: 1.5rem;
+                }
+            }
+
+            .special-notes-container {
+                
+                .form-label {
+                    font-weight: bold; 
+                    font-size: 1rem; 
+                    margin-top: 3rem; 
+                }
+
+                .form-input {
+                    width: 93%; 
+                    height: 150px; 
+                    background: #EEEEEE; 
+                    text-decoration: none;
+                    border: none; 
+                    border-radius: 5px;
+                    margin-top: .5rem; 
+                    font-size: 1.6rem; 
+                    padding-left: .5rem; 
+                }
+            }
         }
+    
 
         img {
             width: 50%; 
         }
+
+    }
+
+    .deck-board-specifications {
+        margin-top: 6rem;
+    }
+
+    .line-5 {
+        display: flex; 
+        margin: 0 auto;
+        width: 100%; 
+        justify-content: space-between;
+        margin-top: 3rem;
+
+        .line-5-input { 
+            width: 30%; 
+
+            .form-label {
+                font-weight: bold; 
+                font-size: 1rem; 
+                margin-top: 1.5rem; 
+                margin-bottom: 1.5rem; 
+            }
+
+            .form-input {
+                width: 100%; 
+                height: 50px;
+                background: #EEEEEE; 
+                text-decoration: none;
+                border: none; 
+                border-radius: 5px;
+                margin-top: .5rem; 
+                font-size: 1.6rem; 
+                padding-left: .5rem; 
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+
+        .next-step {
+            margin: 0 auto; 
+            text-align: center;
+            width: 33%; 
+            text-decoration: none;
+            background: #5184DF; 
+            color: white; 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            height: 50px; 
+            border: none; 
+            border-radius: 5px; 
+            margin-top: 2rem; 
+            cursor: pointer;
+        }
+    }
+
+    #skip { 
+        margin-bottom: 0; 
     }
 }
-
-
-
-// .design-your-pallet-container {
-
-//     h1 {
-        // text-align: center; 
-        // font-size: 2.4rem;
-        // margin-top: 3rem; 
-//     }
-
-//     .form-minimizer-container {
-//         display: flex; 
-//         margin: 0 auto; 
-//         text-align: center;
-//         justify-content: center;
-//         align-items: center;
-//         margin-top: .5rem; 
-//     }
-
-//     h2 {
-//         font-size: 1.6rem;
-//         text-align: center;
-//         margin-top: 1.5rem;
-//     }
-
-//     .top-form {
-//         display: flex;
-//         justify-content: space-around;
-//         margin-top: 3rem;
-
-//         .form-label {
-//             font-weight: bold; 
-//             font-size: 1rem; 
-//             margin-top: 1.5rem; 
-//             margin-bottom: 1.5rem;   
-
-//             .form-input { 
-//                 width: 17rem;
-//                 height: 35px; 
-//                 background: #EEEEEE; 
-//                 text-decoration: none;
-//                 border: none; 
-//                 border-radius: 5px;
-//                 margin-top: .5rem; 
-//                 font-size: 1rem; 
-//                 padding-left: .5rem;  
-//             }
-//         }
-//     }
-
-//     .middle-form {
-//         display: flex;
-//         justify-content: space-around;
-//         margin-top: 3rem;
-//         width: 100%; 
-
-//         .form-label {
-//             font-weight: bold; 
-//             font-size: 1rem; 
-//             margin-bottom: 1.5rem;   
-
-//             .form-input {
-//                 width: 300px; 
-//                 height: 35px; 
-//                 background: #EEEEEE; 
-//                 text-decoration: none;
-//                 border: none; 
-//                 border-radius: 5px;
-//                 margin-top: .5rem; 
-//                 font-size: 1rem; 
-//                 padding-left: .5rem; 
-//             }
-//         }
-//     }
-// }
