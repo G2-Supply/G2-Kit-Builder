@@ -14,7 +14,7 @@ import PrivateRoute from '../utils/PrivateRoute';
 import Profile from '../Profile/Profile'; 
 import DesignYourPallet from '../DesignYourPallet/DesignYourPallet'; 
 import DesignYourBox from '../DesignYourBox/DesignYourBox'; 
-import DesignYourDivider from '../DesignYourDivider/DesignYourDivider'; 
+import PickYourDivider from '../PickYourDivider/PickYourDivider'; 
 
 const AppMain = () => {
     return ( 
@@ -27,7 +27,7 @@ const AppMain = () => {
             <PrivateRoute path='/profile' component={Profile} />
             <PrivateRoute path="/design-your-pallet" component={DesignYourPallet} />
             <PrivateRoute path="/design-your-box" component={DesignYourBox} />
-            <PrivateRoute path="/design-your-divider" component={DesignYourDivider} />
+            <PrivateRoute path="/pick-your-divider" component={PickYourDivider} />
         </div>
      );
 }
