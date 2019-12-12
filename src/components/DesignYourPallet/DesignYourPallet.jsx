@@ -124,10 +124,9 @@ const DesignYourPallet = (props) => {
                     </select>
                 </div>
             </div>
-            <UniversalForm />
-            {/* <div className="bottom-container">
+            <div className="bottom-container">
                 <div className="line-3-line-4-container">
-                    {/* <div className="upload-container">
+                    <div className="upload-container">
                         <label htmlFor="upload" className="form-label">Upload a File<br /></label>
                         <input type="file" className="form-input" id="upload" />
                     </div> 
@@ -157,7 +156,7 @@ const DesignYourPallet = (props) => {
 
                 </div>
                 <img src={Model} alt="3d model of the pallet being created" />
-            </div> */}
+            </div>
             <h2 className="deck-board-specifications runner-specifications">Deck Board Specifications</h2>
             <div className="line-5">
                 <div className="style-of-top-boards line-5-input">

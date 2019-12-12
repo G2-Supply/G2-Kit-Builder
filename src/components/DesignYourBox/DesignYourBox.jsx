@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 
-// library imports
+// library imports 
+import jwtDecode from 'jwt-decode'; 
+import axios from 'axios'; 
 
 // stylesheet imports
-import './DesignYourBox.scss'; 
+import './DesignYourBox.scss';
+
+// image imports 
+import Model from '../../assets/images/pallet-placeholder.png'; 
 
 // component imports 
-import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
+// import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
 
-const DesignYourBox = () => {
+const DesignYourBox = (props) => {
     // handling form state 
     const [ form, setForm ] = useState({
         styleOfBox: '',
@@ -17,11 +22,12 @@ const DesignYourBox = () => {
         widthOfBox: '',
         heightOfBox: '',
         orderFrequency: '',
-        qtyPerOrder: '',
+        qtyOfOrder: '',
         partOfKit: '',
         jointConstruction: '',
         print: '',
         locationOfPrint: '',
+        boxSpecialNotes: '',
     }); 
     
     const changeHandler = (e) => {
@@ -31,13 +37,30 @@ const DesignYourBox = () => {
         })
     }
 
+    // function used to save pallet infgo to the backend
+    const saveAndContinue = () => {
+        const subject = jwtDecode(localStorage.getItem('token'));  
+        const _id = subject.subject; 
+
+        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
+            .then(res => {
+                console.log(res); 
+                props.history.push('/build-your-box'); 
+            })
+            .catch(err => {
+                console.log(err); 
+            })
+    }
+
+    console.log('re-render testing', form); 
+
     return ( 
         <div className="design-your-box-container">
             <h1 className="design-your-box-heading">
                 Step 2 - Design Your Box
             </h1>
             <div className="button-container skip">
-                <button className="next-step" id="skip">Skip This Step</button>
+                <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box-lid')}>Skip This Step</button>
             </div>
             <div className="line-1">
                 <div className="style-of-box-container line-1-input">
@@ -64,7 +87,7 @@ const DesignYourBox = () => {
                     <input type="text" 
                         list="boardGrade" 
                         className="form-input" 
-                        name="lengthOfRunner" 
+                        name="boardGrade" 
                         onChange={changeHandler} 
                         value={form.boardGrade} />
                     <datalist name="boardGrade" id="boardGrade" className="form-input">
@@ -76,7 +99,7 @@ const DesignYourBox = () => {
                     </datalist>
                 </div>
             </div>
-            <div className="line-1">
+            <div className="line-1" style={{"margin-top": "0"}}>
                 <div className="length-of-box-container line-2-input">
                     <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
                     <input type="text" 
@@ -102,7 +125,105 @@ const DesignYourBox = () => {
                         value={form.heightOfBox} />
                 </div>
             </div>
-            <UniversalForm />
+            <div className="line-1">
+                <div className="qty-of-order-container line-2-input">
+                    <label htmlFor="qtyOfOrder" className="form-label">Qty. of Order<br /></label>
+                    <input type="text" 
+                        list="qtyOfOrder"
+                        className="form-input" 
+                        name="qtyOfOrder" 
+                        onChange={changeHandler} 
+                        value={form.qtyOfOrder} />
+                </div>
+                <div className="order-frequency-container line-2-input">
+                    <label htmlFor="orderFrequency" className="form-label">Order Frequency<br /></label>
+                    <input type="text" list="orderFrequency" className="form-input" name="orderFrequency" value={form.orderFrequency} onChange={changeHandler}/>
+                     <datalist 
+                        className="form-input" 
+                        name="orderFrequency"
+                        id="orderFrequency" 
+                        onChange={changeHandler} 
+                        value={form.orderFrequency}>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Bi-Weekly">Bi-Weekly</option>
+                        <option value="Monthly">Monthly</option>
+                    </datalist>
+                </div>
+                <div className="part-of-kit-container line-2-input">
+                    <label htmlFor="partOfKit" className="form-label">Part of a Kit?</label>
+                    <select name="partOfKit" id="partOfKit" className="form-input">
+                        <option>Select an option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+            <div className="line-1">
+                <div className="joint-construction-container line-2-input">
+                    <label htmlFor="jointConstruction" className="form-label">Joint Construction<br /></label>
+                    <input type="text" 
+                        list="jointConstruction"
+                        className="form-input" 
+                        name="jointConstruction" 
+                        onChange={changeHandler} 
+                        value={form.jointConstruction} />
+                    <datalist name="jointConstruction" id="jointConstruction">
+                        <option>Select an option</option>
+                        <option value="Glued">Glued</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Stapled">Stapled</option>
+                    </datalist>
+                </div>
+                <div className="print-container line-2-input">
+                    <label htmlFor="print" className="form-label">Print<br /></label>
+                    <input type="text" list="print" className="form-input" />
+                     <datalist 
+                        className="form-input" 
+                        name="print"
+                        id="print" 
+                        onChange={changeHandler} 
+                        value={form.print}
+                        placeholder="Choose option or input custom print">
+                            <option value="Standard Part Number + BMC">Standard Part Number + BMC</option>
+                            <option value="Custom Print">Custom Print</option>
+                    </datalist>
+                </div>
+                <div className="location-of-print-container line-2-input">
+                    <label htmlFor="locationOfPrint" className="form-label">Location of Print</label>
+                    <select name="locationOfPrint" id="locationOfPrint" className="form-input">
+                        <option>Select an option</option>
+                        <option value="N/A">N/A</option>
+                        <option value="Side">Side</option>
+                        <option value="End">End</option>
+                        <option value="Bottom">Bottom</option>
+                    </select>
+                </div>
+            </div>
+            <div className="bottom-container">
+                <div className="line-3-line-4-container">
+                    {/* <div className="upload-container">
+                        <label htmlFor="upload" className="form-label">Upload a File<br /></label>
+                        <input type="file" className="form-input" id="upload" />
+                    </div> */}
+                    <div className="special-notes-container">
+                        <label htmlFor="box-special-notes" className="form-label">Special Notes for Box<br /></label>
+                        <textarea name="boxSpecialNotes" 
+                            className="form-input" 
+                            id="box-special-notes" cols="30" 
+                            rows="10" 
+                            onChange={changeHandler} 
+                            value={form.boxSpecialNotes}
+                            placeholder="Add any additional information about the pallet runners.">
+                        </textarea>
+                    </div>
+
+                </div>
+                <img src={Model} alt="3d model of the pallet being created" />
+            </div>
+            {/* <UniversalForm /> */}
+            <div className="button-container">
+                <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
+            </div>
         </div>
      );
 }

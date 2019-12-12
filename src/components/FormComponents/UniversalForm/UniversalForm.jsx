@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// styling imports
+import './UniversalForm.scss'; 
+
 // image imports 
 import Model from '../../../assets/images/pallet-placeholder.png'; 
 
