@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
 // library imports
+import axios from 'axios'; 
+import jwtDecode from 'jwt-decode';
 
 // stylesheet imports
 import './DesignYourPallet.scss'; 
 
 // image imports 
 import Model from '../../assets/images/pallet-placeholder.png'; 
-import { tsPropertySignature } from '@babel/types';
+
+//component imports 
+import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
+import ThreeInputForm from '../FormComponents/ThreeInputForm/ThreeInputForm';
 
 const DesignYourPallet = (props) => {
     // setting up form state
@@ -26,7 +31,22 @@ const DesignYourPallet = (props) => {
         qtyOfBottomBoards: '',
         deckBoardWoodQuality: '',
         deckBoardSpecialNotes: '',
-    })
+    }) 
+
+    // function used to save pallet infgo to the backend
+    const saveAndContinue = () => {
+        const subject = jwtDecode(localStorage.getItem('token'));  
+        const _id = subject.subject; 
+
+        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
+            .then(res => {
+                console.log(res); 
+                props.history.push('/build-your-box'); 
+            })
+            .catch(err => {
+                console.log(err); 
+            })
+    }
 
     const changeHandler = (e) => {
         setForm({
@@ -34,6 +54,8 @@ const DesignYourPallet = (props) => {
             [e.target.name]: e.target.value
         })
     }
+
+    console.log(jwtDecode(localStorage.getItem('token')))
 
     console.log(form); 
     return (
@@ -102,12 +124,13 @@ const DesignYourPallet = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="bottom-container">
+            <UniversalForm />
+            {/* <div className="bottom-container">
                 <div className="line-3-line-4-container">
                     {/* <div className="upload-container">
                         <label htmlFor="upload" className="form-label">Upload a File<br /></label>
                         <input type="file" className="form-input" id="upload" />
-                    </div> */}
+                    </div> 
                     <div className="required-pallet-certifications-container">
                         <label htmlFor="required-pallet-certifications" className="form-label">Required Pallet Certifications<br /></label>
                         <select name="requiredPalletCertifications" 
@@ -134,7 +157,7 @@ const DesignYourPallet = (props) => {
 
                 </div>
                 <img src={Model} alt="3d model of the pallet being created" />
-            </div>
+            </div> */}
             <h2 className="deck-board-specifications runner-specifications">Deck Board Specifications</h2>
             <div className="line-5">
                 <div className="style-of-top-boards line-5-input">
@@ -216,26 +239,9 @@ const DesignYourPallet = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="bottom-container">
-                <div className="line-3-line-4-container">
-
-                    <div className="special-notes-container">
-                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes<br /></label>
-                        <textarea name="deckBoardSpecialNotes" 
-                            className="form-input" 
-                            id="special-notes" cols="30" 
-                            rows="10" 
-                            onChange={changeHandler} 
-                            value={form.deckBoardSpecialNotes}
-                            placeholder="Add any additional information about the pallet runners.">
-                        </textarea>
-                    </div>
-
-                </div>
-                <img src={Model} alt="3d model of the pallet being created" />
-            </div>
+            <UniversalForm />
             <div className="button-container">
-                <button className="next-step" onClick={() => props.history.push('/design-your-box')}>Save and Continue</button>
+                <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
         </div> 
         

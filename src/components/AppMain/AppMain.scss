@@ -1,12 +1,14 @@
 .app-main-background {
     width: calc(100% - 20px);  
     height: auto; 
+    min-height: 100%; 
     margin: 10px; 
     margin-top: 0; 
     background: white; 
 
     @media (max-width: 850px) {
-        height: auto; 
+        height: auto;
+        min-height: 100%;  
         margin-top: 10px; 
     }
 }
