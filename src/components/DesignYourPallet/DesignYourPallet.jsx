@@ -12,7 +12,6 @@ import Model from '../../assets/images/pallet-placeholder.png';
 
 //component imports 
 import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
-import ThreeInputForm from '../FormComponents/ThreeInputForm/ThreeInputForm';
 
 const DesignYourPallet = (props) => {
     // setting up form state
