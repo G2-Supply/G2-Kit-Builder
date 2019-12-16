@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode';
 import axios from 'axios'; 
 
 // stylesheet imports
-import './DesignYourBox.scss';
+import './DesignYourBoxLid.scss';
 
 // image imports 
 import Model from '../../assets/images/pallet-placeholder.png'; 
@@ -13,21 +13,21 @@ import Model from '../../assets/images/pallet-placeholder.png';
 // component imports 
 // import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
 
-const DesignYourBox = (props) => {
+const DesignYourBoxLid = (props) => {
     // handling form state 
     const [ form, setForm ] = useState({
-        styleOfBox: '',
-        lengthOfBox: '',
-        widthOfBox: '',
-        heightOfBox: '',
+        styleOfBoxLid: '',
         boardGrade: '',
-        // orderFrequency: '',
-        // qtyOfOrder: '',
-        // partOfKit: '',
+        lengthOfBoxLid: '',
+        widthOfBoxLid: '',
+        heightOfBoxLid: '',
+        orderFrequency: '',
+        qtyOfOrder: '',
+        partOfKit: '',
         jointConstruction: '',
         print: '',
         locationOfPrint: '',
-        boxSpecialNotes: '',
+        boxLidSpecialNotes: '',
     }); 
     
     const changeHandler = (e) => {
@@ -42,10 +42,10 @@ const DesignYourBox = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/boxes/${_id}`, form)
+        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                props.history.push('/design-your-box-lid'); 
+                props.history.push('/build-your-box'); 
             })
             .catch(err => {
                 console.log(err); 
@@ -57,21 +57,21 @@ const DesignYourBox = (props) => {
     return ( 
         <div className="design-your-box-container">
             <h1 className="design-your-box-heading">
-                Step 2 - Design Your Box
+                Step 3 - Design Your Box Lid
             </h1>
             <div className="button-container skip">
-                <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box-lid')}>Skip This Step</button>
+                <button className="next-step" id="skip" onClick={() => props.history.push('/pick-your-divider')}>Skip This Step</button>
             </div>
             <div className="line-1">
                 <div className="style-of-box-container line-1-input">
-                    <label htmlFor="styleOfBox" className="form-label">Style of Box<br /></label>
+                    <label htmlFor="styleOfBoxLid" className="form-label">Style of Box Lid<br /></label>
                     <input type="text" 
-                        list="styleOfBox"
+                        list="styleOfBoxLid"
                         className="form-input" 
-                        name="styleOfBox" 
+                        name="styleOfBoxLid" 
                         onChange={changeHandler} 
-                        value={form.styleOfBox} />
-                    <datalist name="styleOfBox" id="styleOfBox" className="form-input">
+                        value={form.styleOfBoxLid} />
+                    <datalist name="styleOfBoxLid" id="styleOfBoxLid" className="form-input">
                         <option value="RSC">RSC</option>
                         <option value="HSC">HSC</option>
                         <option value="Tray">Tray</option>
@@ -100,29 +100,29 @@ const DesignYourBox = (props) => {
                 </div>
             </div>
             <div className="line-1" style={{"margin-top": "0"}}>
-                <div className="length-of-box-container line-2-input">
-                    <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
+                <div className="length-of-box-lid-container line-2-input">
+                    <label htmlFor="lengthOfBoxLid" className="form-label">Length of Box Lid<br /></label>
                     <input type="text" 
                         className="form-input" 
-                        name="lengthOfBox" 
+                        name="lengthOfBoxLid" 
                         onChange={changeHandler} 
-                        value={form.lengthOfBox} />
+                        value={form.lengthOfBoxLid} />
                 </div>
-                <div className="width-of-box-container line-2-input">
-                    <label htmlFor="widthOfBox" className="form-label">Width of Box<br /></label>
-                    <input type="text" 
+                <div className="width-of-box-lid-container line-2-input">
+                    <label htmlFor="widthOfBoxLid" className="form-label">Width of Box Lid<br /></label>
+                    <input type="textLid" 
                         className="form-input" 
-                        name="widthOfBox" 
+                        name="widthOfBoxLid" 
                         onChange={changeHandler} 
-                        value={form.widthOfBox} />
+                        value={form.widthOfBoxLid} />
                 </div>
-                <div className="height-of-box-container line-2-input">
-                    <label htmlFor="heightOfBox" className="form-label">Height of Box<br /></label>
+                <div className="height-of-box-lid-container line-2-input">
+                    <label htmlFor="heightOfBoxLid" className="form-label">Height of Box Lid<br /></label>
                     <input type="text" 
                         className="form-input" 
-                        name="heightOfBox" 
+                        name="heightOfBoxLid" 
                         onChange={changeHandler} 
-                        value={form.heightOfBox} />
+                        value={form.heightOfBoxLid} />
                 </div>
             </div>
             {/* <div className="line-1">
@@ -175,10 +175,11 @@ const DesignYourBox = (props) => {
                     </datalist>
                 </div>
                 <div className="print-container line-2-input">
-                    <label htmlFor="print" className="form-label">Print<br /></label>
-                    <input type="text" list="print" className="form-input" onChange={changeHandler} name="print" value={form.print} />
+                    <label htmlFor="print" className="form-label" >Print<br /></label>
+                    <input type="text" list="print" className="form-input" value={form.print} name="print" onChange={changeHandler} />
                      <datalist 
                         className="form-input" 
+                        name="print"
                         id="print" 
                         placeholder="Choose option or input custom print">
                             <option value="Standard Part Number + BMC">Standard Part Number + BMC</option>
@@ -203,13 +204,13 @@ const DesignYourBox = (props) => {
                         <input type="file" className="form-input" id="upload" />
                     </div> */}
                     <div className="special-notes-container">
-                        <label htmlFor="box-special-notes" className="form-label">Special Notes for Box<br /></label>
-                        <textarea name="boxSpecialNotes" 
+                        <label htmlFor="box-lid-special-notes" className="form-label">Special Notes for Box<br /></label>
+                        <textarea name="boxLidSpecialNotes" 
                             className="form-input" 
-                            id="box-special-notes" cols="30" 
+                            id="box-lid-special-notes" cols="30" 
                             rows="10" 
                             onChange={changeHandler} 
-                            value={form.boxSpecialNotes}
+                            value={form.boxLidSpecialNotes}
                             placeholder="Add any additional information.">
                         </textarea>
                     </div>
@@ -225,4 +226,4 @@ const DesignYourBox = (props) => {
      );
 }
  
-export default DesignYourBox;
+export default DesignYourBoxLid;
