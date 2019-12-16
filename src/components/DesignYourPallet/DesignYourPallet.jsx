@@ -12,7 +12,6 @@ import Model from '../../assets/images/pallet-placeholder.png';
 
 //component imports 
 import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
-import ThreeInputForm from '../FormComponents/ThreeInputForm/ThreeInputForm';
 
 const DesignYourPallet = (props) => {
     // setting up form state
@@ -41,7 +40,7 @@ const DesignYourPallet = (props) => {
         axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                props.history.push('/build-your-box'); 
+                props.history.push('/design-your-box'); 
             })
             .catch(err => {
                 console.log(err); 
@@ -126,10 +125,10 @@ const DesignYourPallet = (props) => {
             </div>
             <div className="bottom-container">
                 <div className="line-3-line-4-container">
-                    <div className="upload-container">
+                    {/* <div className="upload-container">
                         <label htmlFor="upload" className="form-label">Upload a File<br /></label>
                         <input type="file" className="form-input" id="upload" />
-                    </div> 
+                    </div>  */}
                     <div className="required-pallet-certifications-container">
                         <label htmlFor="required-pallet-certifications" className="form-label">Required Pallet Certifications<br /></label>
                         <select name="requiredPalletCertifications" 
@@ -238,7 +237,26 @@ const DesignYourPallet = (props) => {
                     </select>
                 </div>
             </div>
-            <UniversalForm />
+            <div className="bottom-container">
+                <div className="line-3-line-4-container">
+                    {/* <div className="upload-container">
+                        <label htmlFor="upload" className="form-label">Upload a File<br /></label>
+                        <input type="file" className="form-input" id="upload" />
+                    </div> */}
+                    <div className="special-notes-container">
+                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes for Runner<br /></label>
+                        <textarea name="deckBoardSpecialNotes" 
+                            className="form-input" 
+                            id="deck-board-special-notes" cols="30" 
+                            rows="10" 
+                            onChange={changeHandler} 
+                            placeholder="Add any additional information about the pallet runners.">
+                        </textarea>
+                    </div>
+
+                </div>
+                <img src={Model} alt="3d model of the pallet being created" />
+            </div>
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
