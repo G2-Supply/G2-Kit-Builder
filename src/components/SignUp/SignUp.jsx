@@ -32,7 +32,7 @@ const SignUp = (props) => {
         const token = localStorage.getItem('token'); 
 
         if(token) {
-            props.history.push('/home'); 
+            props.history.push('/design-your-pallet'); 
         }
     }, [])
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth'; 
 
 // library imports 
 import axios from 'axios'; 
+import { axiosWithAuth } from '../utils/axiosWithAuth'; 
 import Loader from 'react-loader-spinner'; 
 import jwtDecode from 'jwt-decode'; 
 
@@ -37,9 +37,18 @@ const SignUp = (props) => {
         }); 
     }
 
+    const token = jwtDecode(localStorage.getItem('token'));
+
     // makes a GET request on the first render to load all of the initial user information
     useEffect(() => {
-
+        axiosWithAuth().get(`http://localhost:5000/api/users/${token.subject}`)
+            .then(res => {
+                console.log(res); 
+                setUser(res.data.docs)
+            })
+            .catch(err => {
+                console.log(err); 
+            })
     }, [])
 
     const handleSubmit = (event) => {
@@ -47,13 +56,11 @@ const SignUp = (props) => {
         event.preventDefault(); 
 
         // switching isLoading to true so the loader animation shows up
-        setIsLoading(true); 
-
-        const token = jwtDecode(localStorage.getItem('token')); 
+        setIsLoading(true);  
 
         // console.log(subject); 
         // PUTing the updated user when the user submits, using either the API url or localhost (for testing) 
-        axiosWithAuth.put(`http://localhost:5000/api/users/${token.subject}`, user)
+        axiosWithAuth().put(`http://localhost:5000/api/users/${token.subject}`, user)
         .then(res => {
             setMessages({
                 ...messages,

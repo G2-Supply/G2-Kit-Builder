@@ -244,7 +244,7 @@ const DesignYourPallet = (props) => {
                         <input type="file" className="form-input" id="upload" />
                     </div> */}
                     <div className="special-notes-container">
-                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes for Runner<br /></label>
+                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes for Deck Board<br /></label>
                         <textarea name="deckBoardSpecialNotes" 
                             className="form-input" 
                             id="deck-board-special-notes" cols="30" 
