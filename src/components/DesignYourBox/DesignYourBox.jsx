@@ -17,13 +17,13 @@ const DesignYourBox = (props) => {
     // handling form state 
     const [ form, setForm ] = useState({
         styleOfBox: '',
-        boardGrade: '',
         lengthOfBox: '',
         widthOfBox: '',
         heightOfBox: '',
-        orderFrequency: '',
-        qtyOfOrder: '',
-        partOfKit: '',
+        boardGrade: '',
+        // orderFrequency: '',
+        // qtyOfOrder: '',
+        // partOfKit: '',
         jointConstruction: '',
         print: '',
         locationOfPrint: '',
@@ -42,10 +42,10 @@ const DesignYourBox = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
+        axios.post(`http://localhost:5000/api/boxes/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                props.history.push('/build-your-box'); 
+                props.history.push('/design-your-box-lid'); 
             })
             .catch(err => {
                 console.log(err); 
@@ -175,11 +175,10 @@ const DesignYourBox = (props) => {
                     </datalist>
                 </div>
                 <div className="print-container line-2-input">
-                    <label htmlFor="print" className="form-label" value={form.print} onChange={changeHandler} name="print">Print<br /></label>
-                    <input type="text" list="print" className="form-input" name="print" value={form.print} onChange={changeHandler} />
+                    <label htmlFor="print" className="form-label">Print<br /></label>
+                    <input type="text" list="print" className="form-input" onChange={changeHandler} name="print" value={form.print} />
                      <datalist 
                         className="form-input" 
-                        name="print"
                         id="print" 
                         placeholder="Choose option or input custom print">
                             <option value="Standard Part Number + BMC">Standard Part Number + BMC</option>
@@ -188,7 +187,7 @@ const DesignYourBox = (props) => {
                 </div>
                 <div className="location-of-print-container line-2-input">
                     <label htmlFor="locationOfPrint" className="form-label">Location of Print</label>
-                    <select name="locationOfPrint" id="locationOfPrint" className="form-input" onChange={changeHandler}>
+                    <select name="locationOfPrint" id="locationOfPrint" className="form-input" value={form.locationOfPrint} onChange={changeHandler}>
                         <option>Select an option</option>
                         <option value="N/A">N/A</option>
                         <option value="Side">Side</option>
