@@ -45,7 +45,7 @@ const DesignYourBoxLid = (props) => {
         axios.post(`http://localhost:5000/api/box-lids/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                props.history.push('/build-your-box'); 
+                props.history.push('/pick-your-divider'); 
             })
             .catch(err => {
                 console.log(err); 
