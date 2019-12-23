@@ -3,9 +3,8 @@
     padding: 0px 20px; 
     background: #5184DF;
     display: flex; 
-    flex-direction: column; 
-    height: auto; 
-    min-height: 100%;  
+    flex-direction: column;
+    height: 100vh;  
 
     @media (max-width: 850px) {
         flex-direction: row; 
