@@ -108,24 +108,45 @@
             font-weight: bold; 
         }
 
-        .signup-btn {
-            width: calc(100% + .5rem); 
-            text-decoration: none;
-            background: #5184DF; 
-            color: white; 
-            font-size: 1.4rem; 
-            font-weight: bold; 
-            height: 50px; 
-            border: none; 
-            border-radius: 5px; 
-            margin-top: 2rem; 
-            cursor: pointer;
+        .profile-btn-container {
+            display: flex;
+            justify-content: space-between;
 
-            // &:disabled {
-            //     background: #CCCCCC; 
-            //     color: white; 
-            // }
+            .signup-btn {
+
+                width: 45%; 
+                text-decoration: none;
+                text-decoration: underline;
+                color: black; 
+                background: white; 
+                font-size: 1.4rem; 
+                font-weight: bold; 
+                height: 50px; 
+                border: none; 
+                border-radius: 5px; 
+                margin-top: 2rem; 
+                cursor: pointer;
+                // &:disabled {
+                //     background: #CCCCCC; 
+                //     color: white; 
+                // }
+            }
+
+            .edit-btn {
+                width: 45%; 
+                text-decoration: none;
+                background: #5184DF; 
+                color: white; 
+                font-size: 1.4rem; 
+                font-weight: bold; 
+                height: 50px; 
+                border: none; 
+                border-radius: 5px; 
+                margin-top: 2rem; 
+                cursor: pointer;
+            }
         }
+
 
         .create-an-account {
             text-align: center; 
