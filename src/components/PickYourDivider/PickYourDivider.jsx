@@ -109,6 +109,7 @@ const PickYourDivider = (props) => {
         axios.post(`http://localhost:5000/api/boxes/${_id}`, form)
             .then(res => {
                 console.log(res); 
+
                 props.history.push('/design-your-foam'); 
             })
             .catch(err => {
@@ -121,7 +122,7 @@ const PickYourDivider = (props) => {
     return ( 
         <div className="pick-your-divider-container">
             <h1 className="design-your-box-heading">
-                Step 5 - Pick Your Divider
+                Step 4 - Pick Your Divider
             </h1>
             <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-foam')}>Skip This Step</button>
