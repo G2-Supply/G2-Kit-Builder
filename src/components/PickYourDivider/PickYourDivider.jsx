@@ -22,10 +22,10 @@ const PickYourDivider = (props) => {
             numberOfCells: '',
             airPockets: '',
             allCellsUsed: '',
-            coatings: '',
-            assembled: '',
-            partOfKit: '',
-            qtyPerKit: '',
+            // coatings: '',
+            // assembled: '',
+            // partOfKit: '',
+            // qtyPerKit: '',
         },
         paper: {
             lengthOfBox: '',
@@ -94,8 +94,8 @@ const PickYourDivider = (props) => {
     const pcorrChangeHandler = (e) => {
         setForm({
             ...form, 
-            p: {
-                ...form.p,
+            pcorr: {
+                ...form.pcorr,
                 [e.target.name]: e.target.value
             }
         })

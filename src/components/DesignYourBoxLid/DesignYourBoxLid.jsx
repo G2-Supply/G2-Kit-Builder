@@ -23,7 +23,7 @@ const DesignYourBoxLid = (props) => {
         heightOfBoxLid: '',
         // orderFrequency: '',
         // qtyOfOrder: '',
-        partOfKit: '',
+        // partOfKit: '',
         jointConstruction: '',
         print: '',
         locationOfPrint: '',
@@ -42,10 +42,10 @@ const DesignYourBoxLid = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
+        axios.post(`http://localhost:5000/api/box-lids/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                props.history.push('/build-your-box'); 
+                props.history.push('/pick-your-divider'); 
             })
             .catch(err => {
                 console.log(err); 

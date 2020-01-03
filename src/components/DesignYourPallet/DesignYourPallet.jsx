@@ -11,13 +11,10 @@ import './DesignYourPallet.scss';
 import Model from '../../assets/images/pallet-placeholder.png'; 
 import Question from '../../assets/images/question-64px.png'; 
 
-//component imports 
-import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
-
 const DesignYourPallet = (props) => {
     // setting up form state
     const [ form, setForm ] = useState({
-        kitId: '',
+        // kitId: '',
         styleOfStringer: '',
         lengthOfStringer: '',
         qtyOfStringers: '',
@@ -26,7 +23,7 @@ const DesignYourPallet = (props) => {
         requiredPalletCertifications: '',
         runnerSpecialNotes: '',
         styleOfTopBoards: '', 
-        qtyOfTopBoards: '',
+        // qtyOfTopBoards: '',
         lengthOfDeckBoards: '',
         styleOfBottomBoards: '',
         qtyOfBottomBoards: '',
@@ -43,7 +40,7 @@ const DesignYourPallet = (props) => {
             .then(res => {
                 console.log(res); 
                 
-                localStorage.setItem('kitId', Date.now()); 
+                // localStorage.setItem('kitId', Date.now()); 
                 
                 props.history.push('/design-your-box'); 
             })
