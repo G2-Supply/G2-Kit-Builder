@@ -40,7 +40,7 @@ const DesignYourFoam = (props) => {
     const changeHandler = (e) => {
         setForm({
             ...form,
-            [e.taret.name]: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -54,31 +54,92 @@ const DesignYourFoam = (props) => {
                 <button className="next-step" id="skip" onClick={() => props.history.push('/order-details')}>Skip This Step</button>
             </div>
             <div className="line-1" style={{"margin-top": "3rem"}}>
-                    <div className="length-of-box-container line-2-input">
-                        <label htmlFor="lengthOfFoam" className="form-label">Length of Foam<br /></label>
-                        <input type="text" 
-                            className="form-input" 
-                            name="lengthOfFoam" 
-                            onChange={changeHandler} 
-                            value={form.lengthOfFoam} />
-                    </div>
-                    <div className="width-of-box-container line-2-input">
-                        <label htmlFor="widthOfFoam" className="form-label">Width of Foam<br /></label>
-                        <input type="text" 
-                            className="form-input" 
-                            name="widthOfFoam" 
-                            onChange={changeHandler} 
-                            value={form.widthOfFoam} />
-                    </div>
-                    <div className="height-of-box-container line-2-input">
-                        <label htmlFor="heightOfFoam" className="form-label">Height of Foam<br /></label>
-                        <input type="text" 
-                            className="form-input" 
-                            name="heightOfFoam" 
-                            onChange={changeHandler} 
-                            value={form.heightOfFoam} />
-                    </div>
+                <div className="length-of-box-container line-2-input">
+                    <label htmlFor="lengthOfFoam" className="form-label">Length of Foam<br /></label>
+                    <input type="text" 
+                        className="form-input" 
+                        name="lengthOfFoam" 
+                        onChange={changeHandler} 
+                        value={form.lengthOfFoam} />
                 </div>
+                <div className="width-of-box-container line-2-input">
+                    <label htmlFor="widthOfFoam" className="form-label">Width of Foam<br /></label>
+                    <input type="text" 
+                        className="form-input" 
+                        name="widthOfFoam" 
+                        onChange={changeHandler} 
+                        value={form.widthOfFoam} />
+                </div>
+                <div className="height-of-box-container line-2-input">
+                    <label htmlFor="heightOfFoam" className="form-label">Height of Foam<br /></label>
+                    <input type="text" 
+                        className="form-input" 
+                        name="heightOfFoam" 
+                        onChange={changeHandler} 
+                        value={form.heightOfFoam} />
+                </div>
+            </div>
+            <div className="line-1" style={{"margin-top": "3rem"}}>
+                <div className="material-container line-2-input">
+                    <label htmlFor="material" className="form-label">Foam Material<br /></label>
+                    <input type="text"
+                        className="form-input"
+                        name="material"
+                        onChange={changeHandler}
+                        value={form.material}
+                    />
+                </div>
+                <div className="color-container line-2-input">
+                    <label htmlFor="color" className="form-label">Foam Color<br /></label>
+                    <input type="text"
+                        className="form-input"
+                        name="color"
+                        onChange={changeHandler}
+                        value={form.color}
+                    />
+                </div>
+                <div className="line-2-input">
+                    <label htmlFor="density" className="form-label">Foam Density<br /></label>
+                    <input type="text"
+                        className="form-input"
+                        name="density"
+                        onChange={changeHandler}
+                        value={form.density}    
+                    />
+                </div>
+            </div>
+            <div className="line-1" style={{"margin-top": "3rem"}}>
+                <div className="lbPerCubicFoot-container line-2-input">
+                    <label htmlFor="lbPerCubicFoot" className="form-label">Lbs per Cubic Foot<br /></label>
+                    <input type="text"
+                        className="form-input"
+                        name="lbPerCubicFoot"
+                        onChange={changeHandler}
+                        value={form.lbPerCubicFoot}
+                    />
+                </div>
+                <div className="dieCut-container line-2-input">
+                    <label htmlFor="dieCut" className="form-label">Die Cut?<br /></label>
+                    <input type="text"
+                        className="form-input"
+                        name="dieCut"
+                        onChange={changeHandler}
+                        value={form.dieCut}
+                    />
+                </div>
+                <div className="line-2-input">
+                    <label htmlFor="drawingAvailable" className="form-label">Drawing Available?<br /></label>
+                    <input type="text"
+                        className="form-input"
+                        name="drawingAvailable"
+                        onChange={changeHandler}
+                        value={form.drawingAvailable}    
+                    />
+                </div>
+            </div>
+            <div className="button-container">
+                <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
+            </div>
         </div>
      );
 }

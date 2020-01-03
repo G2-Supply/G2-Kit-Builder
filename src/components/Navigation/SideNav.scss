@@ -4,8 +4,9 @@
     background: #5184DF;
     display: flex; 
     flex-direction: column;
-    min-height: 100%;
-    height: auto;  
+    min-height: 100vh;
+    // height: auto;  
+    height: calc(100vh - 57px); 
 
     @media (max-width: 850px) {
         flex-direction: row; 

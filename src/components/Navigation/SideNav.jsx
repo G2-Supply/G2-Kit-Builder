@@ -5,10 +5,6 @@ import { NavLink, withRouter } from 'react-router-dom';
 import './SideNav.scss'
 
 const SideNav = (props) => {
-    // logic for the hamburger menu
-    const handleMenu = () => {
-
-    }
     const token = localStorage.getItem('token'); 
 
     const signOut = () => {
