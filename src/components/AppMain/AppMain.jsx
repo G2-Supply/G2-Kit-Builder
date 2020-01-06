@@ -17,6 +17,7 @@ import DesignYourBox from '../DesignYourBox/DesignYourBox';
 import DesignYourBoxLid from '../DesignYourBoxLid/DesignYourBoxLid'; 
 import PickYourDivider from '../PickYourDivider/PickYourDivider'; 
 import DesignYourFoam from '../DesignYourFoam/DesignYourFoam'; 
+import OrderDetails from '../OrderDetails/OrderDetails'; 
 
 const AppMain = () => {
     return ( 
@@ -32,6 +33,7 @@ const AppMain = () => {
             <PrivateRoute path="/design-your-box-lid" component={DesignYourBoxLid} />
             <PrivateRoute path="/pick-your-divider" component={PickYourDivider} />
             <PrivateRoute path="/design-your-foam" component={DesignYourFoam} />
+            <PrivateRoute path="/order-details" component={OrderDetails} />
         </div>
      );
 }
