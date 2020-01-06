@@ -27,9 +27,6 @@ const PickYourDivider = (props) => {
             partOfKit: '',
             qtyPerKit: '',
         },
-        chipboard: {
-
-        },
         paper: {
             lengthOfBox: '',
             widthOfBox: '',
@@ -47,7 +44,12 @@ const PickYourDivider = (props) => {
             material: '',
         },
         pcorr: {
-
+            lengthOfBox: '',
+            widthOfBox: '',
+            heightOfBox: '',
+            numberOfCells: '',
+            airPockets: '',
+            coated: '',
         }
 
     }); 
@@ -64,16 +66,6 @@ const PickYourDivider = (props) => {
             ...form, 
             corrugated: {
                 ...form.corrugated,
-                [e.target.name]: e.target.value
-            }
-        })
-    }
-
-    const chipboardChangeHandler = (e) => {
-        setForm({
-            ...form, 
-            chipboard: {
-                ...form.chipboard,
                 [e.target.name]: e.target.value
             }
         })
@@ -117,7 +109,8 @@ const PickYourDivider = (props) => {
         axios.post(`http://localhost:5000/api/boxes/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                props.history.push('/design-your-box-lid'); 
+
+                props.history.push('/design-your-foam'); 
             })
             .catch(err => {
                 console.log(err); 
@@ -129,7 +122,7 @@ const PickYourDivider = (props) => {
     return ( 
         <div className="pick-your-divider-container">
             <h1 className="design-your-box-heading">
-                Step 5 - Pick Your Divider
+                Step 4 - Pick Your Divider
             </h1>
             <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-foam')}>Skip This Step</button>
@@ -139,7 +132,6 @@ const PickYourDivider = (props) => {
                 <select name="typeOfDivider" id="typeOfDivider" className="form-input" value={form.corrugated.typeOfDivider} onChange={changeHandler}>
                     <option>Select an option</option>
                     <option value="Corrugated">Corrugated</option>
-                    <option value="Chipboard">Chipboard</option>
                     <option value="Paper">Paper</option>
                     <option value="Cloth">Cloth</option>
                     <option value="Pcorr (Plastic Corrugated)">Pcorr (Plastic Corrugated)</option>
@@ -147,22 +139,25 @@ const PickYourDivider = (props) => {
             </div>
             {form.typeOfDivider === 'Corrugated' ? 
                 <div className="corrugated-form-container">
-                    {/* <div className="board-grade-container line-1">
-                        <label htmlFor="boardGrade" className="form-label">Board Grade<br /></label>
-                        <input type="text" 
-                            list="boardGrade" 
-                            className="form-input" 
-                            name="boardGrade" 
-                            onChange={corrugatedChangeHandler} 
-                            value={form.corrugated.boardGrade} />
-                        <datalist name="boardGrade" id="boardGrade" className="form-input">
-                            <option value="32C (single wall)">32C (single wall)</option>
-                            <option value="200C (single wall)">200C (single wall)</option>
-                            <option value="44C (single wall)">44C (single wall)</option>
-                            <option value="48BC (double wall)">48BC (double wall)</option>
-                            <option value="350BC (double wall)">350BC (double wall)</option>
-                        </datalist>
-                    </div> */}
+                    <div className="line-1">
+                        <div className="board-grade-container">
+                            <label htmlFor="boardGrade" className="form-label">Board Grade<br /></label>
+                            <input type="text" 
+                                list="boardGrade" 
+                                className="form-input" 
+                                name="boardGrade" 
+                                onChange={corrugatedChangeHandler} 
+                                value={form.corrugated.boardGrade} />
+                            <datalist name="boardGrade" id="boardGrade" className="form-input">
+                                <option value="32C (single wall)">32C (single wall)</option>
+                                <option value="200C (single wall)">200C (single wall)</option>
+                                <option value="44C (single wall)">44C (single wall)</option>
+                                <option value="48BC (double wall)">48BC (double wall)</option>
+                                <option value="350BC (double wall)">350BC (double wall)</option>
+                                <option value="Chipboard">Chipboard</option>
+                            </datalist>
+                        </div>
+                    </div>
                     <div className="line-1" style={{"margin-top": "0"}}>
                         <div className="length-of-box-container line-2-input">
                             <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
@@ -361,7 +356,78 @@ const PickYourDivider = (props) => {
                     </div>
                 </div>
             </div>
+            : null}
+            {form.typeOfDivider === 'Pcorr (Plastic Corrugated)' ?
+            <div className="paper-form-container form-container">
+                <div className="line-1" style={{"margin-top": "0"}}>
+                    <div className="length-of-box-container line-2-input">
+                        <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
+                        <input type="text" 
+                            className="form-input" 
+                            name="lengthOfBox" 
+                            onChange={pcorrChangeHandler} 
+                            value={form.pcorr.lengthOfBox} />
+                    </div>
+                    <div className="width-of-box-container line-2-input">
+                        <label htmlFor="widthOfBox" className="form-label">Width of Box<br /></label>
+                        <input type="text" 
+                            className="form-input" 
+                            name="widthOfBox" 
+                            onChange={pcorrChangeHandler} 
+                            value={form.pcorr.widthOfBox} />
+                    </div>
+                    <div className="height-of-box-container line-2-input">
+                        <label htmlFor="heightOfBox" className="form-label">Height of Box<br /></label>
+                        <input type="text" 
+                            className="form-input" 
+                            name="heightOfBox" 
+                            onChange={pcorrChangeHandler} 
+                            value={form.pcorr.heightOfBox} />
+                    </div>
+                </div>
+                <div className="line-1" style={{"margin-top": "0"}}>
+                    <div className="length-of-box-container line-2-input">
+                        <label htmlFor="numberOfCells" className="form-label">Number of Cells<br /></label>
+                        <input type="text" 
+                            className="form-input" 
+                            name="numberOfCells" 
+                            onChange={pcorrChangeHandler} 
+                            value={form.pcorr.numberOfCells} />
+                    </div>
+                    <div className="width-of-box-container line-2-input">
+                        <label htmlFor="airPockets" className="form-label">Air Pockets?<br /></label>
+                        <select
+                            className="form-input" 
+                            name="airPockets" 
+                            onChange={pcorrChangeHandler} 
+
+                            value={form.pcorr.airPockets}
+                        >
+                            <option>Select an option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div className="height-of-box-container line-2-input">
+                        <label htmlFor="coated" className="form-label">Coatings<br /></label>
+                        <select
+                            className="form-input" 
+                            name="coated" 
+                            onChange={pcorrChangeHandler} 
+                            value={form.pcorr.coated} 
+                        >
+                            <option>Select an option</option>
+                            <option value="Spunbound">Spunbound</option>
+                            <option value="Brushed Polyester">Brushed Polyester</option>
+                            <option value="Soft Edge">Soft Edge</option>
+                        </select>                                                
+                    </div>
+                </div>
+            </div>
             : null }
+            <div className="button-container">
+                <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
+            </div>
         </div>
      );
 }

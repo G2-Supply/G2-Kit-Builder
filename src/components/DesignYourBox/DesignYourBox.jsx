@@ -16,6 +16,7 @@ import Model from '../../assets/images/pallet-placeholder.png';
 const DesignYourBox = (props) => {
     // handling form state 
     const [ form, setForm ] = useState({
+        kitId: localStorage.getItem('kitId'),
         styleOfBox: '',
         lengthOfBox: '',
         widthOfBox: '',
@@ -51,6 +52,7 @@ const DesignYourBox = (props) => {
                 console.log(err); 
             })
     }
+
 
     console.log('re-render testing', form); 
 

@@ -17,6 +17,7 @@ import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
 const DesignYourPallet = (props) => {
     // setting up form state
     const [ form, setForm ] = useState({
+        kitId: '',
         styleOfStringer: '',
         lengthOfStringer: '',
         qtyOfStringers: '',
@@ -41,6 +42,9 @@ const DesignYourPallet = (props) => {
         axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
                 console.log(res); 
+                
+                localStorage.setItem('kitId', Date.now()); 
+                
                 props.history.push('/design-your-box'); 
             })
             .catch(err => {
