@@ -60,7 +60,7 @@ const SignUp = (props) => {
             })
             localStorage.setItem('token', res.data.token); 
             setTimeout(() => {
-                props.history.push('/kit-builder'); 
+                props.history.push('/design-your-pallet'); 
             }, 3000)
         })
         .catch(err => {
