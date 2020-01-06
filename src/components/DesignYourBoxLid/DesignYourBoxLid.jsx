@@ -16,6 +16,7 @@ import Model from '../../assets/images/pallet-placeholder.png';
 const DesignYourBoxLid = (props) => {
     // handling form state 
     const [ form, setForm ] = useState({
+        kitId: localStorage.getItem('kitId'),
         styleOfBoxLid: '',
         boardGrade: '',
         lengthOfBoxLid: '',

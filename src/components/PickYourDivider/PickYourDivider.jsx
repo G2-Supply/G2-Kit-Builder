@@ -14,6 +14,7 @@ const PickYourDivider = (props) => {
     // state that is handling the forms 
     const [ form, setForm ] = useState({
         typeOfDivider: null,
+        kitId: localStorage.getItem('kitId'),
         corrugated: {
             boardGrade: '',
             lengthOfBox: '',
@@ -106,7 +107,7 @@ const PickYourDivider = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/boxes/${_id}`, form)
+        axios.post(`http://localhost:5000/api/pick/${_id}`, form)
             .then(res => {
                 console.log(res); 
 

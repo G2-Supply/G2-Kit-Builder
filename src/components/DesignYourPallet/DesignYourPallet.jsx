@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // library imports
 import axios from 'axios'; 
@@ -14,7 +14,7 @@ import Question from '../../assets/images/question-64px.png';
 const DesignYourPallet = (props) => {
     // setting up form state
     const [ form, setForm ] = useState({
-        // kitId: '',
+        kitId: '',
         styleOfStringer: '',
         lengthOfStringer: '',
         qtyOfStringers: '',
@@ -23,7 +23,6 @@ const DesignYourPallet = (props) => {
         requiredPalletCertifications: '',
         runnerSpecialNotes: '',
         styleOfTopBoards: '', 
-        // qtyOfTopBoards: '',
         lengthOfDeckBoards: '',
         styleOfBottomBoards: '',
         qtyOfBottomBoards: '',
@@ -31,16 +30,27 @@ const DesignYourPallet = (props) => {
         deckBoardSpecialNotes: '',
     }) 
 
+    useEffect(() => {
+        const kitId = Date.now()
+
+        localStorage.setItem('kitId', kitId); 
+
+        setForm({
+            ...form,
+            kitId: kitId,
+        })
+    }, [])
+
     // function used to save pallet infgo to the backend
     const saveAndContinue = () => {
         const subject = jwtDecode(localStorage.getItem('token'));  
+
         const _id = subject.subject; 
 
         axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                
-                // localStorage.setItem('kitId', Date.now()); 
+                console.log(form.kt); 
                 
                 props.history.push('/design-your-box'); 
             })
@@ -58,7 +68,7 @@ const DesignYourPallet = (props) => {
 
     console.log(jwtDecode(localStorage.getItem('token')))
 
-    console.log(props); 
+    console.log(form); 
     return (
         <div className="design-your-pallet-container">
             <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>

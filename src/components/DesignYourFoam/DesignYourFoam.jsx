@@ -10,6 +10,7 @@ import "./DesignYourFoam.scss";
 const DesignYourFoam = (props) => {
     //state management for the form
     const [ form, setForm ] = useState({
+        kitId: localStorage.getItem('kitId'),
         lengthOfFoam: '',
         widthOfFoam: '',
         heightOfFoam: '',

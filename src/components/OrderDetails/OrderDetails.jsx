@@ -30,6 +30,9 @@ const OrderDetails = (props) => {
         axios.post(`http://localhost:5000/api/order-details/${_id}`, form)
             .then(res => {
                 console.log(res); 
+                
+                localStorage.removeItem('kitId'); 
+
                 props.history.push('/kit-complete'); 
             })
             .catch(err => {
