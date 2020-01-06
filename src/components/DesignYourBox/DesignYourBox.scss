@@ -1,0 +1,193 @@
+  .design-your-box-container {
+    padding: 2rem; 
+
+    .design-your-box-heading {
+        text-align: center; 
+        font-size: 2.4rem;
+        margin-top: 1rem; 
+    }
+
+    .button-container {
+        display: flex;
+
+        .next-step {
+            margin: 0 auto; 
+            text-align: center;
+            width: 33%; 
+            text-decoration: none;
+            background: #5184DF; 
+            color: white; 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            height: 50px; 
+            border: none; 
+            border-radius: 5px; 
+            margin-top: 2rem; 
+            cursor: pointer;
+        }
+    }
+
+    #skip { 
+        margin-bottom: 0; 
+    }
+
+    .line-1 {
+        display: flex; 
+        margin: 0 auto;
+        width: 100%; 
+        justify-content: space-between;
+        margin-top: 3rem;
+
+        @media (max-width: 800px) {
+            flex-direction: column;
+            margin-top: 0;
+        }
+
+        .line-1-input {
+            width: 48%; 
+
+            .form-label {
+                font-weight: bold; 
+                font-size: 1rem; 
+                margin-top: 1.5rem; 
+                margin-bottom: 1.5rem; 
+
+                @media (max-width: 800px) {
+                    width: 100%; 
+                }
+            }
+
+            @media (max-width: 800px) {
+                width: 100%; 
+            }
+
+            .form-input {
+                width: 100%; 
+                height: 50px;
+                background: #EEEEEE; 
+                text-decoration: none;
+                border: none; 
+                border-radius: 5px;
+                margin-top: .5rem; 
+                font-size: 1.6rem; 
+                padding-left: .5rem; 
+                margin-bottom: 1.5rem;
+
+                @media (max-width: 800px) {
+                    width: 100%; 
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }  
+        
+        .line-2-input {
+            width: 30%; 
+
+            @media (max-width: 800px) {
+                width: 100%; 
+                margin-bottom: 1.5rem;
+            }
+
+            .form-label {
+                font-weight: bold; 
+                font-size: 1rem; 
+                margin-top: 1.5rem; 
+                margin-bottom: 1.5rem; 
+
+                @media (max-width: 800px) {
+                    margin-top: 1.5rem;
+                }
+            }
+
+            .form-input {
+                width: 100%; 
+                height: 50px;
+                background: #EEEEEE; 
+                text-decoration: none;
+                border: none; 
+                border-radius: 5px;
+                margin-top: .5rem; 
+                font-size: 1.6rem; 
+                padding-left: .5rem; 
+            }
+        }
+    }
+
+    .bottom-container {
+        display: flex; 
+        margin-top: 2rem;
+    
+        .line-3-line-4-container {
+            width: 50%; 
+    
+            .required-pallet-certifications-container {
+                
+                .form-label {
+                    font-weight: bold; 
+                    font-size: 1rem; 
+                    margin-top: 3rem; 
+                }
+    
+                .form-input {
+                    width: 96%; 
+                    height: 50px;
+                    background: #EEEEEE; 
+                    text-decoration: none;
+                    border: none; 
+                    border-radius: 5px;
+                    margin-top: .5rem; 
+                    font-size: 1.6rem; 
+                    padding-left: .5rem; 
+                    margin-bottom: 1.5rem;
+                }
+            }
+    
+            .special-notes-container {
+                
+                .form-label {
+                    font-weight: bold; 
+                    font-size: 1rem; 
+                    margin-top: 3rem; 
+                }
+    
+                .form-input {
+                    width: 93%; 
+                    height: 150px; 
+                    background: #EEEEEE; 
+                    text-decoration: none;
+                    border: none; 
+                    border-radius: 5px;
+                    margin-top: .5rem; 
+                    font-size: 1.6rem; 
+                    padding-left: .5rem; 
+                }
+            }
+        }
+    
+    
+        img {
+            width: 50%; 
+        }
+    
+    }
+    .button-container {
+        display: flex;
+
+        .next-step {
+            margin: 0 auto; 
+            text-align: center;
+            width: 33%; 
+            text-decoration: none;
+            background: #5184DF; 
+            color: white; 
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            height: 50px; 
+            border: none; 
+            border-radius: 5px; 
+            margin-top: 2rem; 
+            cursor: pointer;
+        }
+    }
+}
+

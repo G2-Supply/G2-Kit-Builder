@@ -1,0 +1,56 @@
+Corrugated Partitions: 
+
+Board Type - 32B, 32C, 200C, Chipboard
+
+Board Thickness
+Inside box dimension: LxWxH
+Total Number of cells
+Air Pockets: Yes or No
+All cells used: Yes or No
+Coatings: Michelman, Poly Coated, Tissue
+Assembled: Yes or No
+Included in a kit:
+Qty per kit:
+
+
+Paper Partitions: 
+
+Inside Box Dimension: LxWxH
+Total Number of Cells
+Air Pockets
+Coated: Yes or No
+
+
+
+Cloth dividers:
+
+ 
+
+Inside Box Dimension: LxWxH
+Total Number of Cells
+Air Pockets
+Material: Blue brushed polyester, Gray Spunbond Polypropylene, White Spun bound polypropylene
+
+
+
+Pcorr (Plastic Corrugated)
+
+Inside box dimension: LxWxH
+Total Number of cells
+Air Pockets: Yes or No
+All cells used: Yes or No
+Coatings: Spunbond, Brushed Polyester, Soft Edge,
+ 
+
+
+Foam:
+
+
+Material: EPE, EPP, Crosslink, PE, HDPE
+Color: White, Black, Gray
+Density:
+Lb per cubic foot:
+Dimensions: LxWxH
+Die Cut: Yes or No
+Drawing available: Yes or No
+

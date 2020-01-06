@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 
 // library imports
+import axios from 'axios'; 
+import jwtDecode from 'jwt-decode';
 
 // stylesheet imports
 import './DesignYourPallet.scss'; 
 
 // image imports 
 import Model from '../../assets/images/pallet-placeholder.png'; 
-import { tsPropertySignature } from '@babel/types';
+import Question from '../../assets/images/question-64px.png'; 
+
+//component imports 
+import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
 
 const DesignYourPallet = (props) => {
     // setting up form state
     const [ form, setForm ] = useState({
-        styleOfRunner: '',
-        lengthOfRunner: '',
-        qtyOfRunners: '',
+        styleOfStringer: '',
+        lengthOfStringer: '',
+        qtyOfStringers: '',
         sideAccess: '',
         runnerWoodQuality: '',
         requiredPalletCertifications: '',
@@ -26,7 +31,22 @@ const DesignYourPallet = (props) => {
         qtyOfBottomBoards: '',
         deckBoardWoodQuality: '',
         deckBoardSpecialNotes: '',
-    })
+    }) 
+
+    // function used to save pallet infgo to the backend
+    const saveAndContinue = () => {
+        const subject = jwtDecode(localStorage.getItem('token'));  
+        const _id = subject.subject; 
+
+        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
+            .then(res => {
+                console.log(res); 
+                props.history.push('/design-your-box'); 
+            })
+            .catch(err => {
+                console.log(err); 
+            })
+    }
 
     const changeHandler = (e) => {
         setForm({
@@ -35,24 +55,33 @@ const DesignYourPallet = (props) => {
         })
     }
 
-    console.log(form); 
+    console.log(jwtDecode(localStorage.getItem('token')))
+
+    console.log(props); 
     return (
         <div className="design-your-pallet-container">
             <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>
             <div className="button-container skip">
-                <button className="next-step" id="skip">Skip This Step</button>
+                <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box')}>Skip This Step</button>
             </div>
-            <h2 className="runner-specifications">Runner Specifications</h2>
+            <h2 className="runner-specifications">Stringer Specifications</h2>
+            <a href='https://oneway-solutions.com/blog/pallet-stringers-explained.html' target="_blank">
+                <h4 
+                    className="runner-specifications" 
+                    style={{"textDecoration": "underline", "fontSize": "1.4rem", "color": "black"}}>What's a Stringer?
+                    <img src={Question} alt="question mark icon" className="question-icon" />
+                </h4>
+            </a>
             <div className="line-1">
                 <div className="style-of-runner-container line-1-input">
-                    <label htmlFor="style-of-runner" className="form-label">Style of Runner<br /></label>
+                    <label htmlFor="style-of-runner" className="form-label">Style of Stringer<br /></label>
                     <input type="text" 
                         list="style-of-runner" 
                         className="form-input" 
-                        name="styleOfRunner" 
+                        name="styleOfStringer" 
                         onChange={changeHandler} 
-                        value={form.styleOfRunner} />
-                    <datalist name="styleOfRunner" 
+                        value={form.styleOfStringer} />
+                    <datalist name="styleOfStringer" 
                         className="form-label" 
                         id="style-of-runner">
                         <option value='4" X 4"'>4" X 4"</option>
@@ -60,14 +89,14 @@ const DesignYourPallet = (props) => {
                     </datalist>
                 </div>
                 <div className="length-of-runner-container line-1-input">
-                    <label htmlFor="length-of-runner" className="form-label">Length of Runner<br /></label>
+                    <label htmlFor="length-of-runner" className="form-label">Length of Stringer<br /></label>
                     <input type="text" 
                         list="length-of-runner" 
                         className="form-input" 
-                        name="lengthOfRunner" 
+                        name="lengthOfStringer" 
                         onChange={changeHandler} 
-                        value={form.lengthOfRunner} />
-                    <datalist name="lengthOfRunner" className="form-label" id="length-of-runner">
+                        value={form.lengthOfStringer} />
+                    <datalist name="lengthOfStringer" className="form-label" id="length-of-runner">
                         <option value='24"'>24"</option>
                         <option value='36"'>36"</option>
                         <option value='48"'>48"</option>
@@ -76,12 +105,12 @@ const DesignYourPallet = (props) => {
                     </datalist>
                 </div>
                 <div className="qty-of-runner-container line-1-input">
-                    <label htmlFor="qty-of-runner" className="form-label">Qty. of Runners<br /></label>
+                    <label htmlFor="qty-of-runner" className="form-label">Qty. of Stringers<br /></label>
                     <input type="number" 
                         className="form-input" 
-                        name="qtyOfRunners" 
+                        name="qtyOfStringers" 
                         onChange={changeHandler} 
-                        value={form.qtyOfRunners} />
+                        value={form.qtyOfStringers} />
                 </div>
             </div>
             <div className="line-2">
@@ -94,7 +123,7 @@ const DesignYourPallet = (props) => {
                     </select>
                 </div>
                 <div className="wood-quality-container line-2-input">
-                    <label htmlFor="runner-wood-quality" className="form-label">Runner Wood Quality<br /></label>
+                    <label htmlFor="runner-wood-quality" className="form-label">Stringer Wood Quality<br /></label>
                     <select name="runnerWoodQuality" className="form-input" id="runner-wood-quality" onChange={changeHandler}>
                         <option>Select an option</option>
                         <option value="Heat Treated">Heat Treated</option>
@@ -107,7 +136,7 @@ const DesignYourPallet = (props) => {
                     {/* <div className="upload-container">
                         <label htmlFor="upload" className="form-label">Upload a File<br /></label>
                         <input type="file" className="form-input" id="upload" />
-                    </div> */}
+                    </div>  */}
                     <div className="required-pallet-certifications-container">
                         <label htmlFor="required-pallet-certifications" className="form-label">Required Pallet Certifications<br /></label>
                         <select name="requiredPalletCertifications" 
@@ -118,17 +147,18 @@ const DesignYourPallet = (props) => {
                             onChange={changeHandler}>
                             <option>Select an option</option>
                             <option value="Export Stamped">Export Stamped</option>
+                            <option value="Company Stamp">Company Stamp</option>
                         </select>
                     </div>
                     <div className="special-notes-container">
-                        <label htmlFor="runner-special-notes" className="form-label">Special Notes for Runner<br /></label>
+                        <label htmlFor="runner-special-notes" className="form-label">Special Notes for Stringer<br /></label>
                         <textarea name="runnerSpecialNotes" 
                             className="form-input" 
                             id="runner-special-notes" cols="30" 
                             rows="10" 
                             onChange={changeHandler} 
                             value={form.runnerSpecialNotes}
-                            placeholder="Add any additional information about the pallet runners.">
+                            placeholder="Add any additional information about the pallet stringers.">
                         </textarea>
                     </div>
 
@@ -136,6 +166,13 @@ const DesignYourPallet = (props) => {
                 <img src={Model} alt="3d model of the pallet being created" />
             </div>
             <h2 className="deck-board-specifications runner-specifications">Deck Board Specifications</h2>
+            <a href='https://nazpallet.com/pallets/pallet-terminology/' target="_blank">
+                <h4 
+                    className="runner-specifications" 
+                    style={{"textDecoration": "underline", "fontSize": "1.4rem", "color": "black"}}>What's a Deck Board?
+                    <img src={Question} alt="question mark icon" className="question-icon" />
+                </h4>
+            </a>
             <div className="line-5">
                 <div className="style-of-top-boards line-5-input">
                     <label htmlFor="style-of-top-boards" className="form-label">Style of Top Boards<br /></label>
@@ -218,15 +255,17 @@ const DesignYourPallet = (props) => {
             </div>
             <div className="bottom-container">
                 <div className="line-3-line-4-container">
-
+                    {/* <div className="upload-container">
+                        <label htmlFor="upload" className="form-label">Upload a File<br /></label>
+                        <input type="file" className="form-input" id="upload" />
+                    </div> */}
                     <div className="special-notes-container">
-                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes<br /></label>
+                        <label htmlFor="deck-board-special-notes" className="form-label">Special Notes for Deck Board<br /></label>
                         <textarea name="deckBoardSpecialNotes" 
                             className="form-input" 
-                            id="special-notes" cols="30" 
+                            id="deck-board-special-notes" cols="30" 
                             rows="10" 
                             onChange={changeHandler} 
-                            value={form.deckBoardSpecialNotes}
                             placeholder="Add any additional information about the pallet runners.">
                         </textarea>
                     </div>
@@ -235,7 +274,7 @@ const DesignYourPallet = (props) => {
                 <img src={Model} alt="3d model of the pallet being created" />
             </div>
             <div className="button-container">
-                <button className="next-step" onClick={() => props.history.push('/design-your-box')}>Save and Continue</button>
+                <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
         </div> 
         
