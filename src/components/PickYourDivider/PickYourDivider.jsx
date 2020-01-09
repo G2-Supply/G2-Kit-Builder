@@ -107,7 +107,7 @@ const PickYourDivider = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/pick/${_id}`, form)
+        axios.post(`http://localhost:5000/api/dividers/${_id}`, form)
             .then(res => {
                 console.log(res); 
 

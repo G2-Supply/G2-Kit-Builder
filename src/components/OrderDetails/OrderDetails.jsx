@@ -10,8 +10,9 @@ import './OrderDetails.scss'
 const OrderDetails = (props) => {
     // state handling for the form 
     const [ form, setForm ] = useState({
+        kitId: localStorage.getItem('kitId'),
         monthlyQuantity: '',
-        yearlyQuantity: '',
+        annualQuantity: '',
         orderFrequency: '', 
     })
 
