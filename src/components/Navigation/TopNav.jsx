@@ -12,7 +12,7 @@ const TopNav = () => {
 
     return ( 
         <div className="topnav-wrapper">
-            <NavLink className="topnav-links" to="/home">Home</NavLink>
+            <NavLink className="topnav-links" to="/design-your-pallet">Home</NavLink>
             <a className="topnav-links" href="https://www.g2supply.com">Website</a>
             <NavLink className="topnav-links" to="/profile">Profile</NavLink>
         </div>
