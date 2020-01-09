@@ -83,21 +83,32 @@ const DesignYourFoam = (props) => {
             <div className="line-1" style={{"margin-top": "3rem"}}>
                 <div className="material-container line-2-input">
                     <label htmlFor="material" className="form-label">Foam Material<br /></label>
-                    <input type="text"
-                        className="form-input"
-                        name="material"
-                        onChange={changeHandler}
-                        value={form.material}
-                    />
+                <select                     className="form-input"
+                    name="material"
+                    onChange={changeHandler}
+                    value={form.material}
+                >
+                    <option value="Select an option">Select an option</option>
+                    <option value="EPE">EPE</option>
+                    <option value="EPP">EPP</option>
+                    <option value="Crosslink">Crosslink</option>
+                    <option value="PE">PE</option>
+                    <option value="HDPE">HDPE</option>
+                </select>
                 </div>
                 <div className="color-container line-2-input">
                     <label htmlFor="color" className="form-label">Foam Color<br /></label>
-                    <input type="text"
+                    <select
                         className="form-input"
                         name="color"
                         onChange={changeHandler}
                         value={form.color}
-                    />
+                    >
+                        <option>Select an option</option>
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
+                        <option value="Gray">Gray</option>
+                    </select>
                 </div>
                 <div className="line-2-input">
                     <label htmlFor="density" className="form-label">Foam Density<br /></label>
@@ -121,21 +132,35 @@ const DesignYourFoam = (props) => {
                 </div>
                 <div className="dieCut-container line-2-input">
                     <label htmlFor="dieCut" className="form-label">Die Cut?<br /></label>
-                    <input type="text"
+                    <select name="dieCut"
                         className="form-input"
                         name="dieCut"
                         onChange={changeHandler}
                         value={form.dieCut}
-                    />
+                        >
+                        <option>Select an option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </div>
                 <div className="line-2-input">
                     <label htmlFor="drawingAvailable" className="form-label">Drawing Available?<br /></label>
-                    <input type="text"
+                    {/* <input type="text"
                         className="form-input"
                         name="drawingAvailable"
                         onChange={changeHandler}
                         value={form.drawingAvailable}    
-                    />
+                    /> */}
+                    <select name="drawingAvailable" 
+                        className="form-input"
+                        name="drawingAvailable"
+                        onChange={changeHandler}
+                        value={form.drawingAvailable}    
+                    >
+                        <option>Select an option</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </div>
             </div>
             <div className="button-container">
