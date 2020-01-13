@@ -19,12 +19,12 @@ const SideNav = (props) => {
     return ( 
         <div className="sidenav-wrapper">
             {!token ? <p className="signout" onClick={login}>Login</p> : <p onClick={signOut} className="signout">Sign Out</p>}
-            <NavLink className='side-links' activeClassName="active-side-links" to='/design-your-pallet'>Home
+            <NavLink className='side-links' activeClassName="active-side-links" to='/start-building'>Home
                 <p className="link-desc">
                     - A tool for customers to build kits.
                 </p>
             </NavLink>
-            <NavLink className='side-links' to='/saved-kits'>My Saved Kits
+            <NavLink className='side-links' to='/my-saved-kits'>My Saved Kits
                 <p className="link-desc">
                     - A list of kits saved by the user for future reference.
                 </p>

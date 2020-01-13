@@ -14,7 +14,7 @@ import Question from '../../assets/images/question-64px.png';
 const DesignYourPallet = (props) => {
     // setting up form state
     const [ form, setForm ] = useState({
-        kitId: '',
+        kitId: localStorage.getItem('kitId'),
         styleOfStringer: '',
         lengthOfStringer: '',
         qtyOfStringers: '',
@@ -30,17 +30,6 @@ const DesignYourPallet = (props) => {
         deckBoardSpecialNotes: '',
     }) 
 
-    useEffect(() => {
-        const kitId = Date.now()
-
-        localStorage.setItem('kitId', kitId); 
-
-        setForm({
-            ...form,
-            kitId: kitId,
-        })
-    }, [])
-
     // function used to save pallet infgo to the backend
     const saveAndContinue = () => {
         const subject = jwtDecode(localStorage.getItem('token'));  
@@ -50,7 +39,6 @@ const DesignYourPallet = (props) => {
         axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
                 console.log(res); 
-                console.log(form.kt); 
                 
                 props.history.push('/design-your-box'); 
             })
