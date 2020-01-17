@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // library imports 
-import axiosWithAuth from '../utils/axiosWithAuth'; 
+import { axiosWithAuth } from '../utils/axiosWithAuth'; 
 import jwtDecode from 'jwt-decode'; 
 
 //styling imports 
