@@ -29,7 +29,7 @@ const Login = (props) => {
         const token = localStorage.getItem('token'); 
 
         if(token) {
-            props.history.push('/design-your-pallet'); 
+            props.history.push('/start-building'); 
         }
     }, [])
 
