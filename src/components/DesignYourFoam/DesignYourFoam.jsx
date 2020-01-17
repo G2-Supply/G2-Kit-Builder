@@ -54,7 +54,7 @@ const DesignYourFoam = (props) => {
             <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/order-details')}>Skip This Step</button>
             </div>
-            <div className="line-1" style={{"margin-top": "3rem"}}>
+            <div className="line-1" style={{"marginTop": "3rem"}}>
                 <div className="length-of-box-container line-2-input">
                     <label htmlFor="lengthOfFoam" className="form-label">Length of Foam<br /></label>
                     <input type="text" 
@@ -80,7 +80,7 @@ const DesignYourFoam = (props) => {
                         value={form.heightOfFoam} />
                 </div>
             </div>
-            <div className="line-1" style={{"margin-top": "3rem"}}>
+            <div className="line-1" style={{"marginTop": "3rem"}}>
                 <div className="material-container line-2-input">
                     <label htmlFor="material" className="form-label">Foam Material<br /></label>
                 <select                     className="form-input"
@@ -120,7 +120,7 @@ const DesignYourFoam = (props) => {
                     />
                 </div>
             </div>
-            <div className="line-1" style={{"margin-top": "3rem"}}>
+            <div className="line-1" style={{"marginTop": "3rem"}}>
                 <div className="lbPerCubicFoot-container line-2-input">
                     <label htmlFor="lbPerCubicFoot" className="form-label">Lbs per Cubic Foot<br /></label>
                     <input type="text"
