@@ -4,19 +4,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'; 
 import jwtDecode from 'jwt-decode'; 
 
+// styling  imports 
+import './StartBuilding.scss'; 
+
 const StartBuilding = (props) => {
 
     const subject = jwtDecode(localStorage.getItem('token'));  
 
     const _id = subject.subject; 
-    console.log('test'); 
+
     const [ kit, setKit ] = useState({
        id: _id
     }); 
 
     const getStarted = () => {
-        console.log(kit); 
-        console.log(_id); 
         axios.post(`http://localhost:5000/api/kits/${_id}`, kit)
         .then(res => {
             console.log(res); 
@@ -30,7 +31,7 @@ const StartBuilding = (props) => {
 
     return ( 
         <div className="start-building-container">
-            <h1>Welcome to the G2 Kit Builder</h1>
+            <h1>Welcome to the G2 Kit Builder!</h1>
             <button onClick={getStarted}>Get Started</button>
         </div>
      );

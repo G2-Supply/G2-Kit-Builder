@@ -71,9 +71,14 @@ const Login = (props) => {
                     ...messages,
                     success: true,
                 })
+                // temporary for the purposes of demonstration.  Going to find a more elegant solution
+                // localStorage.setItem('userName', res.data.user.name)
+                // localStorage.setItem('userCompany', res.data.user.company)
+                // localStorage.setItem('userEmail', res.data.user.email)
                 localStorage.setItem('token', res.data.token); 
+
                 setTimeout(() => {
-                    props.history.push('/kit-builder'); 
+                    props.history.push('/start-building'); 
                 }, 3000)
             })
             .catch(err => {

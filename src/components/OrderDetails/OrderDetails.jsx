@@ -45,7 +45,7 @@ const OrderDetails = (props) => {
             <h1 className="design-your-box-heading">
                 Step 6 - Order Details
             </h1>
-            <div className="line-1" style={{"margin-top": "3rem"}}>
+            <div className="line-1" style={{"marginTop": "3rem"}}>
                 <div className="length-of-box-container line-2-input">
                     <label htmlFor="monthlyQuantity" className="form-label">Monthly Quantity<br /></label>
                     <input type="number" 

@@ -159,7 +159,7 @@ const PickYourDivider = (props) => {
                             </datalist>
                         </div>
                     </div>
-                    <div className="line-1" style={{"margin-top": "0"}}>
+                    <div className="line-1" style={{"marginTop": "0"}}>
                         <div className="length-of-box-container line-2-input">
                             <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
                             <input type="text" 
@@ -185,7 +185,7 @@ const PickYourDivider = (props) => {
                                 value={form.corrugated.heightOfBox} />
                         </div>
                     </div>
-                    <div className="line-2" style={{"margin-top": "0"}}>
+                    <div className="line-2" style={{"marginTop": "0"}}>
                         <div className="length-of-box-container line-2-input">
                             <label htmlFor="numberOfCells" className="form-label">Number of Cells<br /></label>
                             <input type="text" 
@@ -225,7 +225,7 @@ const PickYourDivider = (props) => {
             : null}
             {form.typeOfDivider === 'Paper' ?
             <div className="paper-form-container form-container">
-                <div className="line-1" style={{"margin-top": "0"}}>
+                <div className="line-1" style={{"": "0"}}>
                     <div className="length-of-box-container line-2-input">
                         <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
                         <input type="text" 
@@ -251,7 +251,7 @@ const PickYourDivider = (props) => {
                             value={form.paper.heightOfBox} />
                     </div>
                 </div>
-                <div className="line-1" style={{"margin-top": "0"}}>
+                <div className="line-1" style={{"marginTop": "0"}}>
                     <div className="length-of-box-container line-2-input">
                         <label htmlFor="numberOfCells" className="form-label">Number of Cells<br /></label>
                         <input type="text" 
@@ -292,7 +292,7 @@ const PickYourDivider = (props) => {
             : null }
             {form.typeOfDivider === 'Cloth' ?
             <div className="paper-form-container form-container">
-                <div className="line-1" style={{"margin-top": "0"}}>
+                <div className="line-1" style={{"marginTop": "0"}}>
                     <div className="length-of-box-container line-2-input">
                         <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
                         <input type="text" 
@@ -318,7 +318,7 @@ const PickYourDivider = (props) => {
                             value={form.cloth.heightOfBox} />
                     </div>
                 </div>
-                <div className="line-1" style={{"margin-top": "0"}}>
+                <div className="line-1" style={{"marginTop": "0"}}>
                     <div className="length-of-box-container line-2-input">
                         <label htmlFor="numberOfCells" className="form-label">Number of Cells<br /></label>
                         <input type="text" 
@@ -360,7 +360,7 @@ const PickYourDivider = (props) => {
             : null}
             {form.typeOfDivider === 'Pcorr (Plastic Corrugated)' ?
             <div className="paper-form-container form-container">
-                <div className="line-1" style={{"margin-top": "0"}}>
+                <div className="line-1" style={{"marginTop": "0"}}>
                     <div className="length-of-box-container line-2-input">
                         <label htmlFor="lengthOfBox" className="form-label">Length of Box<br /></label>
                         <input type="text" 
@@ -386,7 +386,7 @@ const PickYourDivider = (props) => {
                             value={form.pcorr.heightOfBox} />
                     </div>
                 </div>
-                <div className="line-1" style={{"margin-top": "0"}}>
+                <div className="line-1" style={{"marginTop": "0"}}>
                     <div className="length-of-box-container line-2-input">
                         <label htmlFor="numberOfCells" className="form-label">Number of Cells<br /></label>
                         <input type="text" 

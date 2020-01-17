@@ -100,7 +100,7 @@ const DesignYourBoxLid = (props) => {
                     </datalist>
                 </div>
             </div>
-            <div className="line-1" style={{"margin-top": "0"}}>
+            <div className="line-1" style={{"marginTop": "0"}}>
                 <div className="length-of-box-lid-container line-2-input">
                     <label htmlFor="lengthOfBoxLid" className="form-label">Length of Box Lid<br /></label>
                     <input type="text" 
