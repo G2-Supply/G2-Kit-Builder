@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import axios from 'axios'; 
 import jwtDecode from 'jwt-decode'; 
 
+// styling imports 
+import './KitComplete.scss'; 
+
 const KitComplete = (props) => {
 
     const subject = jwtDecode(localStorage.getItem('token'));  
@@ -36,11 +39,9 @@ const KitComplete = (props) => {
     console.log(kit); 
     console.log(subject); 
     return ( 
-        <div className="kit-complete-container">
+        <div className="start-building-container">
             <h1>Kit Complete!</h1>
-            <p>Would you like to send it in for a quote?</p>
-            <p>No</p>
-            <button onClick={sendForQuote}>Yes</button>
+            <button onClick={sendForQuote}>Send for Quote</button>
         </div>
      );
 }

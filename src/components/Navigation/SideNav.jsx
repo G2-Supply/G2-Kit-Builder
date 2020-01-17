@@ -34,10 +34,6 @@ const SideNav = (props) => {
                     - A page to edit account information.
                 </p>
             </NavLink> : null}
-            <NavLink className="side-links" to="/pick-your-divider">Pick Your Divider</NavLink>
-            <NavLink className="side-links" to="/design-your-box">Build Your Box</NavLink>
-            <NavLink className="side-links" to="/design-your-box-lid">Build Your Box Lid</NavLink>
-            <NavLink className="side-links" to="/design-your-pallet">Build Your Pallet</NavLink>
         </div>
     );
 }
