@@ -29,15 +29,15 @@ const KitComplete = (props) => {
     const sendForQuote = () => {
         axios.post(`http://localhost:5000/api/quote/${_id}`, kit)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }       
 
-    console.log(kit); 
-    console.log(subject); 
+    // console.log(kit); 
+    // console.log(subject); 
     return ( 
         <div className="start-building-container">
             <h1>Kit Complete!</h1>

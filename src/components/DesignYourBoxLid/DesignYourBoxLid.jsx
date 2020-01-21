@@ -8,7 +8,7 @@ import axios from 'axios';
 import './DesignYourBoxLid.scss';
 
 // image imports 
-import Model from '../../assets/images/pallet-placeholder.png'; 
+import Model from '../../assets/images/boxlid.jpg'; 
 
 // component imports 
 // import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
@@ -45,15 +45,15 @@ const DesignYourBoxLid = (props) => {
 
         axios.post(`http://localhost:5000/api/box-lids/${_id}`, form)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
                 props.history.push('/pick-your-divider'); 
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }
 
-    console.log('re-render testing', form); 
+    // console.log('re-render testing', form); 
 
     return ( 
         <div className="design-your-box-container">
@@ -217,7 +217,7 @@ const DesignYourBoxLid = (props) => {
                     </div>
 
                 </div>
-                <img src={Model} alt="3d model of the pallet being created" />
+                <img src={Model} style={{"width": "40%"}}alt="3d model of the pallet being created" />
             </div>
             {/* <UniversalForm /> */}
             <div className="button-container">

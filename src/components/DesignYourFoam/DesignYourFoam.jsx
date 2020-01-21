@@ -6,6 +6,7 @@ import jwtDecode from 'jwt-decode'
 
 // styling and image imports 
 import "./DesignYourFoam.scss"; 
+import Model from '../../assets/images/foam.png'; 
 
 const DesignYourFoam = (props) => {
     //state management for the form
@@ -29,11 +30,11 @@ const DesignYourFoam = (props) => {
 
         axios.post(`http://localhost:5000/api/foam/${_id}`, form)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
                 props.history.push('/order-details'); 
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }
 
@@ -45,7 +46,7 @@ const DesignYourFoam = (props) => {
         })
     }
 
-    console.log(form); 
+    // console.log(form); 
     return ( 
         <div className="design-your-box-container">
             <h1 className="design-your-box-heading">
@@ -163,6 +164,7 @@ const DesignYourFoam = (props) => {
                     </select>
                 </div>
             </div>
+            <img src={Model} style={{"width": "40%", "margin": "2rem", "textAlign": "center"}} alt="3d model of the pallet being created" />
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>

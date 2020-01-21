@@ -24,11 +24,12 @@ const SideNav = (props) => {
                     - A tool for customers to build kits.
                 </p>
             </NavLink>
-            <NavLink className='side-links' to='/my-saved-kits'>My Saved Kits
+            {/* Working on the backend endpoints for this, not needed for MVP  */}
+            {/* <NavLink className='side-links' to='/my-saved-kits'>My Saved Kits
                 <p className="link-desc">
                     - A list of kits saved by the user for future reference.
                 </p>
-            </NavLink>
+            </NavLink> */}
             {token ? <NavLink className='side-links' to='/profile'>Profile
                 <p className="link-desc">
                     - A page to edit account information.
