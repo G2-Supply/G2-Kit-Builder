@@ -38,7 +38,7 @@ const ForgotPassword = (props) => {
                 email: state.email,
             })
                 .then(response => {
-                    console.log(response.data); 
+                    // console.log(response.data); 
                     if(response.data === 'This email is not associated with an account.') {
                         setState({
                             showError: true,
@@ -52,7 +52,7 @@ const ForgotPassword = (props) => {
                     }
                 })
                 .catch(err => {
-                    console.log(err); 
+                    // console.log(err); 
                 })
         }
     }

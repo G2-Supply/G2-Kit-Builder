@@ -8,7 +8,8 @@ import jwtDecode from 'jwt-decode';
 import './DesignYourPallet.scss'; 
 
 // image imports 
-import Model from '../../assets/images/pallet-placeholder.png'; 
+import Stringer from '../../assets/images/2x4.jpg'; 
+import DeckBoard from '../../assets/images/1x6.jpg'; 
 import Question from '../../assets/images/question-64px.png'; 
 
 const DesignYourPallet = (props) => {
@@ -38,12 +39,12 @@ const DesignYourPallet = (props) => {
 
         axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
                 
                 props.history.push('/design-your-box'); 
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }
 
@@ -54,9 +55,9 @@ const DesignYourPallet = (props) => {
         })
     }
 
-    console.log(jwtDecode(localStorage.getItem('token')))
+    // console.log(jwtDecode(localStorage.getItem('token')))
 
-    console.log(form); 
+    // console.log(form); 
     return (
         <div className="design-your-pallet-container">
             <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>
@@ -162,7 +163,7 @@ const DesignYourPallet = (props) => {
                     </div>
 
                 </div>
-                <img src={Model} alt="3d model of the pallet being created" />
+                <img src={Stringer} alt="3d model of the pallet being created" />
             </div>
             <h2 className="deck-board-specifications runner-specifications">Deck Board Specifications</h2>
             <a href='https://nazpallet.com/pallets/pallet-terminology/' target="_blank">
@@ -270,7 +271,7 @@ const DesignYourPallet = (props) => {
                     </div>
 
                 </div>
-                <img src={Model} alt="3d model of the pallet being created" />
+                <img src={DeckBoard} style={{"width": "50%"}} alt="3d model of the pallet being created" />
             </div>
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>

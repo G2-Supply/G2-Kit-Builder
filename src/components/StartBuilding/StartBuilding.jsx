@@ -20,12 +20,12 @@ const StartBuilding = (props) => {
     const getStarted = () => {
         axios.post(`http://localhost:5000/api/kits/${_id}`, kit)
         .then(res => {
-            console.log(res); 
+            // console.log(res); 
             localStorage.setItem('kitId', res.data.kit._id); 
             props.history.push('/design-your-pallet'); 
         })
         .catch(err => {
-            console.log(err); 
+            // console.log(err); 
         })
     }
 

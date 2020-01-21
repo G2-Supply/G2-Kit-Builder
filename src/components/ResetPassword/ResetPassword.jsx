@@ -19,14 +19,14 @@ const ResetPassword = (props) => {
     const [ isLoading, setIsLoading ] = useState(false); 
 
     useEffect(() => {
-        console.log(props.match.params.token); 
+        // console.log(props.match.params.token); 
         axios.get('http://localhost:3000/reset', {
             params: {
                 resetPasswordToken: props.match.params.token,
             }
         })
         .then(response => {
-            console.log(response); 
+            // console.log(response); 
             if(response.data.message === 'password reset link a-ok') {
                 setState({
                     username: response.data.username,
@@ -58,7 +58,7 @@ const ResetPassword = (props) => {
             password: this.state.password,
         })
         .then(response => {
-            console.log(response.data); 
+            // console.log(response.data); 
             if(response.data.message === 'password updated') {
                 setState({
                     update: true,

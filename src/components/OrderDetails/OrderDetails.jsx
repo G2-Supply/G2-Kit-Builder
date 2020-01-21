@@ -30,16 +30,16 @@ const OrderDetails = (props) => {
 
         axios.post(`http://localhost:5000/api/order-details/${_id}`, form)
             .then(res => {
-                console.log(res);  
+                // console.log(res);  
 
                 props.history.push('/kit-complete'); 
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }
 
-    console.log(form); 
+    // console.log(form); 
     return ( 
         <div className="order-details-container">
             <h1 className="design-your-box-heading">

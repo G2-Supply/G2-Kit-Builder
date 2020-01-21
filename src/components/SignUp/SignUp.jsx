@@ -71,7 +71,7 @@ const SignUp = (props) => {
                     failure: true,
                 })
             }, 3000); 
-            console.log(err); 
+            // console.log(err); 
         }); 
     }
 

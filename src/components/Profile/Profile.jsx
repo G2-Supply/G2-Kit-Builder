@@ -46,11 +46,11 @@ const SignUp = (props) => {
     useEffect(() => {
         axiosWithAuth().get(`http://localhost:5000/api/users/${token.subject}`)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
                 setUser(res.data.docs)
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }, [])
 
@@ -81,7 +81,7 @@ const SignUp = (props) => {
                     failure: true,
                 })
             }, 3000); 
-            console.log(err); 
+            // console.log(err); 
         }); 
     }
 
@@ -99,10 +99,10 @@ const SignUp = (props) => {
 
         axiosWithAuth().put(`http://localhost:5000/api/users/${token.subject}`, user)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
             })
             .catch(err => {
-                console.log(err); 
+                // console.log(err); 
             })
     }
 
@@ -123,8 +123,8 @@ const SignUp = (props) => {
       };
 
 
-    console.log(user);   
-    console.log(editing); 
+    // console.log(user);   
+    // console.log(editing); 
     return ( 
         <div className="signup-container">
             <h1 className="signup-heading">Profile</h1>}
