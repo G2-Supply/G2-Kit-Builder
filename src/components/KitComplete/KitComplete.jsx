@@ -29,6 +29,7 @@ const KitComplete = (props) => {
     const sendForQuote = () => {
         axios.post(`https://g2-kit-builder.herokuapp.com/api/quote/${_id}` || `http://localhost:5000/api/quote/${_id}`, kit)
             .then(res => {
+                props.history.push('/start-building')
                 // console.log(res); 
             })
             .catch(err => {
