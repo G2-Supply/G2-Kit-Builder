@@ -20,7 +20,7 @@ const MySavedKits = (props) => {
     const _id = subject.subject; 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/kits/${_id}`)
+        axios.get(`https://g2-kit-builder.herokuapp.com/api/kits/${_id}` || `http://localhost:5000/api/kits/${_id}`)
             .then(res => {
                 setKits(res.data)
                 console.log(res); 

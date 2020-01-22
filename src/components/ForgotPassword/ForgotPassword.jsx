@@ -34,7 +34,7 @@ const ForgotPassword = (props) => {
                 messageFromServer: '',
             })
         } else {
-            axios.post('http://localhost:5000/api/users/forgot-password', {
+            axios.post(`https://g2-kit-builder.herokuapp.com/api/users/forgot-password` || 'http://localhost:5000/api/users/forgot-password', {
                 email: state.email,
             })
                 .then(response => {

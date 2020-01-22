@@ -18,7 +18,7 @@ const StartBuilding = (props) => {
     }); 
 
     const getStarted = () => {
-        axios.post(`http://localhost:5000/api/kits/${_id}`, kit)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/kits/${_id}` || `http://localhost:5000/api/kits/${_id}`, kit)
         .then(res => {
             // console.log(res); 
             localStorage.setItem('kitId', res.data.kit._id); 

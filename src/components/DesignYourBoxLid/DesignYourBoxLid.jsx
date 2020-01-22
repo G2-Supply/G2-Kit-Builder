@@ -43,7 +43,7 @@ const DesignYourBoxLid = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/box-lids/${_id}`, form)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/box-lids/${_id}` || `http://localhost:5000/api/box-lids/${_id}`, form)
             .then(res => {
                 // console.log(res); 
                 props.history.push('/pick-your-divider'); 
