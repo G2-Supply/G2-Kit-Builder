@@ -107,7 +107,7 @@ const PickYourDivider = (props) => {
         const subject = jwtDecode(localStorage.getItem('token'));  
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/dividers/${_id}`, form)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/dividers/${_id}` || `http://localhost:5000/api/dividers/${_id}`, form)
             .then(res => {
                 // console.log(res); 
 

@@ -27,7 +27,7 @@ const KitComplete = (props) => {
     })
 
     const sendForQuote = () => {
-        axios.post(`http://localhost:5000/api/quote/${_id}`, kit)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/quote/${_id}` || `http://localhost:5000/api/quote/${_id}`, kit)
             .then(res => {
                 // console.log(res); 
             })

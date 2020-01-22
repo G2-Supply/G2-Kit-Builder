@@ -20,7 +20,7 @@ const ResetPassword = (props) => {
 
     useEffect(() => {
         // console.log(props.match.params.token); 
-        axios.get('http://localhost:3000/reset', {
+        axios.get(`https://g2-kit-builder.herokuapp.com/reset` || 'http://localhost:3000/reset', {
             params: {
                 resetPasswordToken: props.match.params.token,
             }
@@ -53,7 +53,7 @@ const ResetPassword = (props) => {
     updatePassword = e => {
         e.preventDefault(); 
 
-        axios.put('http://localhost:3000/updatepasswordViaEmail', {
+        axios.put(`https://g2-kit-builder.herokuapp.com/updatepasswordViaEmail` || 'http://localhost:3000/updatepasswordViaEmail', {
             username: this.state.username,
             password: this.state.password,
         })

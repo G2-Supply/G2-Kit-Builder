@@ -44,7 +44,7 @@ const SignUp = (props) => {
 
     // makes a GET request on the first render to load all of the initial user information
     useEffect(() => {
-        axiosWithAuth().get(`http://localhost:5000/api/users/${token.subject}`)
+        axiosWithAuth().get(`https://g2-kit-builder.herokuapp.com/api/users/${token.subject}` || `http://localhost:5000/api/users/${token.subject}`)
             .then(res => {
                 // console.log(res); 
                 setUser(res.data.docs)
@@ -63,7 +63,7 @@ const SignUp = (props) => {
 
         // console.log(subject); 
         // PUTing the updated user when the user submits, using either the API url or localhost (for testing) 
-        axiosWithAuth().put(`http://localhost:5000/api/users/${token.subject}`, user)
+        axiosWithAuth().put(`https://g2-kit-builder.herokuapp.com/api/users/${token.subject}` || `http://localhost:5000/api/users/${token.subject}`, user)
         .then(res => {
             setMessages({
                 ...messages,
@@ -97,7 +97,7 @@ const SignUp = (props) => {
     const saveEdits = () => {
         setEditing(false); 
 
-        axiosWithAuth().put(`http://localhost:5000/api/users/${token.subject}`, user)
+        axiosWithAuth().put(`https://g2-kit-builder.herokuapp.com/api/users/${token.subject}` ||`http://localhost:5000/api/users/${token.subject}`, user)
             .then(res => {
                 // console.log(res); 
             })

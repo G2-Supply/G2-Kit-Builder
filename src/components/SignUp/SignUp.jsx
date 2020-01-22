@@ -52,7 +52,7 @@ const SignUp = (props) => {
         setIsLoading(true); 
 
         // POSTing the new user when the user submits, using either the API url or localhost (for testing) 
-        axios.post('http://localhost:5000/api/users', user)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/users` || 'http://localhost:5000/api/users', user)
         .then(res => {
             setMessages({
                 ...messages,

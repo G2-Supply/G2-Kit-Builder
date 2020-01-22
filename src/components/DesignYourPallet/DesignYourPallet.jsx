@@ -37,9 +37,9 @@ const DesignYourPallet = (props) => {
 
         const _id = subject.subject; 
 
-        axios.post(`http://localhost:5000/api/pallets/${_id}`, form)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/pallets/${_id}` || `https://``http://localhost:5000/api/pallets/${_id}`, form)
             .then(res => {
-                // console.log(res); 
+                console.log(res); 
                 
                 props.history.push('/design-your-box'); 
             })
