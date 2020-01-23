@@ -65,7 +65,7 @@ const DesignYourPallet = (props) => {
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box')}>Skip This Step</button>
             </div>
             <h2 className="runner-specifications">Stringer Specifications</h2>
-            <a href='https://oneway-solutions.com/blog/pallet-stringers-explained.html' target="_blank">
+            <a href='#' target="_blank">
                 <h4 
                     className="runner-specifications" 
                     style={{"textDecoration": "underline", "fontSize": "1.4rem", "color": "black"}}>What's a Stringer?
@@ -166,7 +166,7 @@ const DesignYourPallet = (props) => {
                 <img src={Stringer} alt="3d model of the pallet being created" />
             </div>
             <h2 className="deck-board-specifications runner-specifications">Deck Board Specifications</h2>
-            <a href='https://nazpallet.com/pallets/pallet-terminology/' target="_blank">
+            <a href='#' target="_blank">
                 <h4 
                     className="runner-specifications" 
                     style={{"textDecoration": "underline", "fontSize": "1.4rem", "color": "black"}}>What's a Deck Board?
