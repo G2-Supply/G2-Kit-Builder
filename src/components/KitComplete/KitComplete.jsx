@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // library imports 
 import axios from 'axios'; 
 import jwtDecode from 'jwt-decode'; 
+import Loader from 'react-loader-spinner'; 
 
 // styling imports 
 import './KitComplete.scss'; 
@@ -26,14 +27,41 @@ const KitComplete = (props) => {
         userEmail: userEmail
     })
 
-    const sendForQuote = () => {
+    // using a hook to handle Loading state
+    const [ isLoading, setIsLoading ] = useState(false); 
+
+    // hook to determine success as failure of the request
+    const [ messages, setMessages ] = useState({
+        success: false,
+        failure: false
+    })
+
+    const sendForQuote = (e) => {
+        e.preventDefault(); 
+
+        // switching isLoading to true so the loader animation shows up
+        setIsLoading(true); 
+
         axios.post(`https://g2-kit-builder.herokuapp.com/api/quote/${_id}` || `http://localhost:5000/api/quote/${_id}`, kit)
             .then(res => {
-                props.history.push('/start-building')
-                // console.log(res); 
+                setMessages({
+                    ...messages,
+                    success: true,
+                })
+
+                setTimeout(() => {
+                    props.history.push('/start-building'); 
+                }, 3000); 
+
             })
             .catch(err => {
-                // console.log(err); 
+                setTimeout(() => {
+                    setIsLoading(false)
+                    setMessages({
+                        ...messages,
+                        failure: true,
+                    })
+                }, 3000); 
             })
     }       
 
@@ -42,7 +70,19 @@ const KitComplete = (props) => {
     return ( 
         <div className="start-building-container">
             <h1>Kit Complete!</h1>
-            <button onClick={sendForQuote}>Send for Quote</button>
+            {messages.success ? <h2 className="messages messages-success">Quote sent successfully!  A representative will contact you soon.</h2> : null }
+            {messages.failure ? <h2 className="messages">Quote failed.  Try again later.</h2> : null }
+            {isLoading ? 
+                    <button className="login-btn">
+                        <Loader
+                            type="Oval"
+                            color="#FFFFFF"
+                            height={40}
+                            width={40}
+                            timeout={10000} //10 secs
+                            style={{marginTop: '.2rem'}}
+                        />
+                    </button> : <button onClick={sendForQuote}>Send for Quote</button>}
         </div>
      );
 }
