@@ -194,7 +194,7 @@ const DesignYourBoxLid = (props) => {
                         <option value="N/A">N/A</option>
                         <option value="Side">Side</option>
                         <option value="End">End</option>
-                        <option value="Bottom">Bottom</option>
+                        <option value="Top">Top</option>
                     </select>
                 </div>
             </div>
