@@ -24,7 +24,8 @@ const SignUp = (props) => {
     // hook to determine success as failure of the request
     const [ messages, setMessages ] = useState({
         success: false,
-        failure: false
+        failure: false,
+        userExists: false,
     })
 
     // if the user is already logged in, we want to push them back to kit-builder
@@ -52,7 +53,7 @@ const SignUp = (props) => {
         setIsLoading(true); 
 
         // POSTing the new user when the user submits, using either the API url or localhost (for testing) 
-        axios.post(`https://g2-kit-builder.herokuapp.com/api/users` || 'http://localhost:5000/api/users', user)
+        axios.post(`https://g2-kit-builder.herokuapp.com/api/users/register` || 'http://localhost:5000/api/users/register', user)
         .then(res => {
             setMessages({
                 ...messages,
@@ -66,12 +67,19 @@ const SignUp = (props) => {
         .catch(err => {
             setTimeout(() => {
                 setIsLoading(false)
-                setMessages({
-                    ...messages,
-                    failure: true,
-                })
+
+                if(err.response.status === 422) {
+                    setMessages({
+                        ...messages,
+                        userExists: true,
+                    })
+                } else {
+                    setMessages({
+                        ...messages,
+                        failure: true,
+                    })
+                } 
             }, 3000); 
-            // console.log(err); 
         }); 
     }
 
@@ -117,6 +125,7 @@ const SignUp = (props) => {
                 </label>
                 {messages.success ? <h2 className="messages messages-success">Account created successfully.  Welcome!</h2> : null }
                 {messages.failure ? <h2 className="messages">Credentials invalid.  Please make sure you filled out the form correctly.</h2> : null }
+                {messages.userExists ? <h2 className="messages">You already have an account.  Please use your credentials to login to your account.</h2> : null }
                 {isLoading ? 
                     <button className="login-btn">
                         <Loader

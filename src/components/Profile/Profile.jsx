@@ -90,20 +90,46 @@ const SignUp = (props) => {
         setEditing(!editing); 
 
         setUser({...user});  
+
+        const inputColor = document.querySelectorAll('input'); 
+
+        inputColor.forEach(input => {
+            input.classList.toggle('being-edited')
+        })
     }
 
     // funciton to make a PUT request to the API and save the updated user information 
-
-    const saveEdits = () => {
+    const saveEdits = (e) => {
+        // preventing the page from rerendering onSubmit
+        e.preventDefault(); 
+        //setting editing state
         setEditing(false); 
+        // switching isLoading to true so the loader animation shows up
+        setIsLoading(true); 
 
         axiosWithAuth().put(`https://g2-kit-builder.herokuapp.com/api/users/${token.subject}` ||`http://localhost:5000/api/users/${token.subject}`, user)
             .then(res => {
-                // console.log(res); 
+                console.log(res); 
+                setTimeout(() => {
+                    setMessages({
+                        ...messages,
+                        success: true,
+                    }) 
+
+                    setIsLoading(false); 
+
+                    handleEditing(); 
+                }, 3000); 
             })
             .catch(err => {
-                // console.log(err); 
-            })
+                setTimeout(() => {
+                    setIsLoading(false)
+                    setMessages({
+                        ...messages,
+                        failure: true,
+                    })
+                }, 3000); 
+            }); 
     }
 
     // handling form validation 
@@ -127,7 +153,7 @@ const SignUp = (props) => {
     // console.log(editing); 
     return ( 
         <div className="signup-container">
-            <h1 className="signup-heading">Profile</h1>}
+            <h1 className="signup-heading">Profile</h1>
             {editing ? 
                 <form className="form-container" onSubmit={handleSubmit} >
                     <div className="name-container">
@@ -163,6 +189,18 @@ const SignUp = (props) => {
                     <div className="profile-btn-container">
                         <button className="signup-btn" onClick={handleEditing}>Cancel</button>
                         <button className="edit-btn" onClick={saveEdits}>Save</button>
+                        {/* {isLoading ? 
+                        <button className="edit-btn">
+                            <Loader
+                                type="Oval"
+                                color="#FFFFFF"
+                                height={40}
+                                width={40}
+                                timeout={10000} //10 secs
+                                style={{marginTop: '.2rem'}}
+                            />
+                        </button> : <button className="edit-btn" onClick={saveEdits}>Save</button>
+                        }   */}
                     </div>
                 </form>
             : 
@@ -197,9 +235,23 @@ const SignUp = (props) => {
                             />
                     </button> : <button className="signup-btn" onClick={handleEditing}>Edit</button>
                     } {/* disabled={!user.email || !user.password} */}
+                    {messages.success ? <h2 className="messages messages-success">Account edited successfully!</h2> : null }
+                    {messages.failure ? <h2 className="messages">Something went wrong.  Please try again later.</h2> : null }
                     <div className="profile-btn-container">
                         <button className="signup-btn" onClick={handleEditing}>Edit</button>
-                        <button className="edit-btn" onClick={saveEdits}>Save</button>
+                        {/* <button className="edit-btn" onClick={saveEdits}>Save</button> */}
+                        {isLoading ? 
+                        <button className="edit-btn">
+                            <Loader
+                                type="Oval"
+                                color="#FFFFFF"
+                                height={40}
+                                width={40}
+                                timeout={10000} //10 secs
+                                style={{marginTop: '.2rem'}}
+                            />
+                        </button> : <button className="edit-btn" onClick={saveEdits}>Save</button>
+                        } 
                     </div>
                 </form>}
         </div>

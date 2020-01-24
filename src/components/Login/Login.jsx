@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // library imports 
 import axios from 'axios'; 
+import { axiosWithAuth } from '../utils/axiosWithAuth'; 
 import Loader from 'react-loader-spinner'; 
 
 // style sheet import
@@ -65,7 +66,7 @@ const Login = (props) => {
         setIsLoading(true); 
 
         // POSTing the new user when the user submits, using either the API url or localhost (for testing) 
-        axios.post(`https://g2-kit-builder.herokuapp.com/api/users/login` || 'http://localhost:5000/api/users/login', user)
+        axiosWithAuth().post(`https://g2-kit-builder.herokuapp.com/api/users/login` || 'http://localhost:5000/api/users/login', user)
             .then(res => {
                 setMessages({
                     ...messages,
