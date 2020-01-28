@@ -211,7 +211,6 @@ const DesignYourBoxLid = (props) => {
                     </div>
 
                 </div>
-                <img src={Model} style={{"width": "40%"}}alt="3d model of the pallet being created" />
             </div>
             {/* <UniversalForm /> */}
             <div className="button-container">
