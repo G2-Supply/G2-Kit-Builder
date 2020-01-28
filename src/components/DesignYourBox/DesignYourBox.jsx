@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import jwtDecode from 'jwt-decode'; 
 import axios from 'axios'; 
 
+
 // stylesheet imports
 import './DesignYourBox.scss';
 
-// image imports 
-import Model from '../../assets/images/box.jpg'; 
+// component imports 
+import BoxModel from '../3DModeling/BoxModel/BoxModel'; 
 
 // component imports 
 // import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
@@ -217,7 +218,7 @@ const DesignYourBox = (props) => {
                     </div>
 
                 </div>
-                <img src={Model} style={{"width": "40%"}} alt="3d model of the pallet being created" />
+                <BoxModel width="500" height="400" boxWidth={form.widthOfBox} boxHeight={form.heightOfBox} boxLength={form.lengthOfBox} />
             </div>
             {/* <UniversalForm /> */}
             <div className="button-container">

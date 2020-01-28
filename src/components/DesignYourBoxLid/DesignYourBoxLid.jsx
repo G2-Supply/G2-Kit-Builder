@@ -73,14 +73,9 @@ const DesignYourBoxLid = (props) => {
                         onChange={changeHandler} 
                         value={form.styleOfBoxLid} />
                     <datalist name="styleOfBoxLid" id="styleOfBoxLid" className="form-input">
-                        <option value="RSC">RSC</option>
-                        <option value="HSC">HSC</option>
                         <option value="Tray">Tray</option>
-                        <option value="HSC Top/Flange Bottom">HSC Top/Flange Bottom</option>
-                        <option value="5 Panel Folder">5 Panel Folder</option>
-                        <option value="FOL">FOL</option>
-                        <option value="Shroud">Shroud</option>
-                        <option value="Die Cut">Die Cut</option>
+                        <option value="Self-locking">Self-locking</option>
+                        <option value="5 Panel Folder">No Lid</option>
                     </datalist>
                 </div>
                 <div className="board-grade-container line-1-input">
@@ -170,8 +165,7 @@ const DesignYourBoxLid = (props) => {
                         value={form.jointConstruction} />
                     <datalist name="jointConstruction" id="jointConstruction">
                         <option>Select an option</option>
-                        <option value="Glued">Glued</option>
-                        <option value="Flat">Flat</option>
+                        <option value="Self-locking">Self-locking</option>
                         <option value="Stapled">Stapled</option>
                     </datalist>
                 </div>
@@ -217,7 +211,6 @@ const DesignYourBoxLid = (props) => {
                     </div>
 
                 </div>
-                <img src={Model} style={{"width": "40%"}}alt="3d model of the pallet being created" />
             </div>
             {/* <UniversalForm /> */}
             <div className="button-container">
