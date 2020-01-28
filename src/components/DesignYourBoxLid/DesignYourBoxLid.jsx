@@ -73,14 +73,9 @@ const DesignYourBoxLid = (props) => {
                         onChange={changeHandler} 
                         value={form.styleOfBoxLid} />
                     <datalist name="styleOfBoxLid" id="styleOfBoxLid" className="form-input">
-                        <option value="RSC">RSC</option>
-                        <option value="HSC">HSC</option>
                         <option value="Tray">Tray</option>
-                        <option value="HSC Top/Flange Bottom">HSC Top/Flange Bottom</option>
-                        <option value="5 Panel Folder">5 Panel Folder</option>
-                        <option value="FOL">FOL</option>
-                        <option value="Shroud">Shroud</option>
-                        <option value="Die Cut">Die Cut</option>
+                        <option value="Self-locking">Self-locking</option>
+                        <option value="5 Panel Folder">No Lid</option>
                     </datalist>
                 </div>
                 <div className="board-grade-container line-1-input">
