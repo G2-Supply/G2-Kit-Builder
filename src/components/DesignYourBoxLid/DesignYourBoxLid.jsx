@@ -170,8 +170,7 @@ const DesignYourBoxLid = (props) => {
                         value={form.jointConstruction} />
                     <datalist name="jointConstruction" id="jointConstruction">
                         <option>Select an option</option>
-                        <option value="Glued">Glued</option>
-                        <option value="Flat">Flat</option>
+                        <option value="Self-locking">Self-locking</option>
                         <option value="Stapled">Stapled</option>
                     </datalist>
                 </div>
