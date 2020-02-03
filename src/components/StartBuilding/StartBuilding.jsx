@@ -47,12 +47,13 @@ const StartBuilding = (props) => {
                             color="#FFFFFF"
                             height={40}
                             width={40}
-                            timeout={10000} //10 secs
+                            // 20 secs - it's only this long for occasions when heroku backend has to "wake up" and it takes significantly longer than normal
+                            timeout={20000}
                             style={{marginTop: '.2rem'}}
                         />
                     </button> : <button className="login-btn" onClick={getStarted}>Get Started</button>}
         </div>
      );
 }
- 
+
 export default StartBuilding;
