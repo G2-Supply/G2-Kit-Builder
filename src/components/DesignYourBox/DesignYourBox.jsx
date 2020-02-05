@@ -9,9 +9,6 @@ import axios from 'axios';
 import './DesignYourBox.scss';
 
 // component imports 
-import BoxModel from '../3DModeling/BoxModel/BoxModel'; 
-
-// component imports 
 // import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
 
 const DesignYourBox = (props) => {
@@ -218,7 +215,6 @@ const DesignYourBox = (props) => {
                     </div>
 
                 </div>
-                <BoxModel width="500" height="400" boxWidth={form.widthOfBox} boxHeight={form.heightOfBox} boxLength={form.lengthOfBox} />
             </div>
             {/* <UniversalForm /> */}
             <div className="button-container">
