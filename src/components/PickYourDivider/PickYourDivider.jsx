@@ -8,7 +8,10 @@ import axios from 'axios';
 import './PickYourDivider.scss';
 
 // image imports 
-import Model from '../../assets/images/divider.jpg'; 
+import Corrugated from '../../assets/images/divider.jpg'; 
+import Cloth from '../../assets/images/fabric-divider.jpg'; 
+import Paper from '../../assets/images/paper-divider.jpg'; 
+import Pcorr from '../../assets/images/pcorr-divider.jpg'; 
 
 const PickYourDivider = (props) => {
     // state that is handling the forms 
@@ -221,6 +224,7 @@ const PickYourDivider = (props) => {
                             </select>
                         </div>
                     </div>
+                    <img src={Corrugated} style={{"display": "block", "width": "40%", "textAlign": "center", "margin": "3rem auto"}} alt="3d model of the pallet being created" />
                 </div> 
             : null}
             {form.typeOfDivider === 'Paper' ?
@@ -288,6 +292,7 @@ const PickYourDivider = (props) => {
                         </select>                                                
                     </div>
                 </div>
+                <img src={Paper} style={{"width": "40%", "textAlign": "center", "margin": "3rem auto"}} alt="3d model of the pallet being created" />
             </div>
             : null }
             {form.typeOfDivider === 'Cloth' ?
@@ -356,6 +361,7 @@ const PickYourDivider = (props) => {
                         </select>                                                
                     </div>
                 </div>
+                <img src={Cloth} style={{"width": "40%", "textAlign": "center", "margin": "3rem auto"}} alt="3d model of the pallet being created" />
             </div>
             : null}
             {form.typeOfDivider === 'Pcorr (Plastic Corrugated)' ?
@@ -424,9 +430,9 @@ const PickYourDivider = (props) => {
                         </select>                                                
                     </div>
                 </div>
+                <img src={Pcorr} style={{"width": "40%", "textAlign": "center", "margin": "3rem auto"}} alt="3d model of the pallet being created" />
             </div>
             : null }
-            <img src={Model} style={{"width": "40%", "textAlign": "center"}} alt="3d model of the pallet being created" />
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
