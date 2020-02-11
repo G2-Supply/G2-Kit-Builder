@@ -1,4 +1,0 @@
-1.  Change "Runner" to "Stringer"
-2.  Add quick tip for "What is a Stringer?"
-3.  Same for Deckboard
-4. Add option for "Company Stamp" on the "Required Pallet Certificcations" input
