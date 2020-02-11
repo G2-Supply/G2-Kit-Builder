@@ -8,6 +8,15 @@ import axios from 'axios';
 // stylesheet imports
 import './DesignYourBox.scss';
 
+// image imports 
+import RSC from '../../assets/images/rsc.jpg'
+import HSC from '../../assets/images/hsc.jpg'
+import Tray from '../../assets/images/tray.jpg'
+import FivePanel from '../../assets/images/5-panel-folder.png'
+import FOL from '../../assets/images/FOL.jpg'
+import Die from '../../assets/images/die.jpg'
+// import RSC from '../../assets/images/rsc.jpg'
+
 // component imports 
 // import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
 
@@ -195,11 +204,8 @@ const DesignYourBox = (props) => {
                     {/* <div className="upload-container">
                         <label htmlFor="upload" className="form-label">Upload a File<br /></label>
                         <input type="file" className="form-input" id="upload" />
-                    </div> */}
-                    <div className="special-notes-container">
-                        <label htmlFor="box-special-notes" className="form-label">Special Notes for Box<br /></label>
-                        <textarea name="boxSpecialNotes" 
-                            className="form-input" 
+                    </div> */} 
+                    <div className="special-notes-container"> <label htmlFor="box-special-notes" className="form-label">Special Notes for Box<br /></label> <textarea name="boxSpecialNotes" className="form-input" 
                             id="box-special-notes" cols="30" 
                             rows="10" 
                             onChange={changeHandler} 
@@ -211,11 +217,17 @@ const DesignYourBox = (props) => {
                 </div>
             </div>
             {/* <UniversalForm /> */}
+            {form.styleOfBox === "RSC" ? <img src={RSC} alt="RSC Box" style={{"display": "block", "margin": "0 auto", "textAlign": "center"}}style={{"display": "block", "margin": "0 auto", "textAlign": "center"}}/> :  
+            form.styleOfBox === "HSC" ? <img src={HSC} alt="HSC Box" style={{"display": "block", "margin": "0 auto", "textAlign": "center"}} /> : 
+            form.styleOfBox === "Tray" ? <img src={Tray} alt="Tray" style={{"display": "block", "margin": "3rem auto", "textAlign": "center", "width": "60%"}} /> : 
+            form.styleOfBox === "5 Panel Folder" ? <img src={FivePanel} alt="FivePanel" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : 
+            form.styleOfBox === "FOL" ? <img src={FOL} alt="FOL" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : 
+            form.styleOfBox === "Die Cut" ? <img src={Die} alt="Die" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : null }
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
         </div>
-     );
+    );
 }
- 
-export default DesignYourBox;
+
+export default DesignYourBox; 

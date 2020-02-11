@@ -8,7 +8,9 @@ import axios from 'axios';
 import './DesignYourBoxLid.scss';
 
 // image imports 
-import Model from '../../assets/images/boxlid.jpg'; 
+import Tray from '../../assets/images/tray.jpg'
+import SelfLocking from '../../assets/images/boxlid.jpg'
+import FivePanel from '../../assets/images/5-panel-folder.png'
 
 // component imports 
 // import UniversalForm from '../FormComponents/UniversalForm/UniversalForm';
@@ -213,6 +215,9 @@ const DesignYourBoxLid = (props) => {
                 </div>
             </div>
             {/* <UniversalForm /> */}
+            {form.styleOfBoxLid === "Tray" ? <img src={Tray} alt="Tray" style={{"display": "block", "margin": "3rem auto", "textAlign": "center", "width": "60%"}} /> : 
+            form.styleOfBoxLid === "5 Panel Folder" ? <img src={FivePanel} alt="FivePanel" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> :
+            form.styleOfBoxLid === "Self-locking" ? <img src={SelfLocking} alt="Self Locking" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : null }
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>

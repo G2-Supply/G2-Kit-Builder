@@ -164,7 +164,7 @@ const DesignYourFoam = (props) => {
                     </select>
                 </div>
             </div>
-            <img src={Model} style={{"width": "40%", "margin": "2rem", "textAlign": "center"}} alt="3d model of the pallet being created" />
+            <img src={Model} style={{"width": "40%", "margin": "3rem auto", "textAlign": "center", "display": "block"}} alt="3d model of the pallet being created" />
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
