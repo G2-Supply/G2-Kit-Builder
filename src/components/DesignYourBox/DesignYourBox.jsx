@@ -20,12 +20,6 @@ const DesignYourBox = (props) => {
         widthOfBox: '',
         heightOfBox: '',
         boardGrade: '',
-        // orderFrequency: '',
-        // qtyOfOrder: '',
-        // partOfKit: '',
-        jointConstruction: '',
-        print: '',
-        locationOfPrint: '',
         boxSpecialNotes: '',
     }); 
     
