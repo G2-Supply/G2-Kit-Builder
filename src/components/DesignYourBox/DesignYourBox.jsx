@@ -15,6 +15,7 @@ import Tray from '../../assets/images/tray.jpg'
 import FivePanel from '../../assets/images/5-panel-folder.png'
 import FOL from '../../assets/images/FOL.jpg'
 import Die from '../../assets/images/die.jpg'
+import Shroud from '../../assets/images/shroud.png'
 // import RSC from '../../assets/images/rsc.jpg'
 
 // component imports 
@@ -222,7 +223,8 @@ const DesignYourBox = (props) => {
             form.styleOfBox === "Tray" ? <img src={Tray} alt="Tray" style={{"display": "block", "margin": "3rem auto", "textAlign": "center", "width": "60%"}} /> : 
             form.styleOfBox === "5 Panel Folder" ? <img src={FivePanel} alt="FivePanel" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : 
             form.styleOfBox === "FOL" ? <img src={FOL} alt="FOL" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : 
-            form.styleOfBox === "Die Cut" ? <img src={Die} alt="Die" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : null }
+            form.styleOfBox === "Die Cut" ? <img src={Die} alt="Die" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : 
+            form.styleOfBox === "Shroud" ? <img src={Shroud} alt="Shroud" style={{"display": "block", "margin": "0 auto", "textAlign": "center", "width": "40%"}} /> : null }
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
