@@ -56,7 +56,7 @@ const DesignYourBox = (props) => {
     }
 
 
-    // console.log('re-render testing', form); 
+    console.log('re-render testing', form); 
 
     return ( 
         <div className="design-your-box-container">
@@ -69,13 +69,13 @@ const DesignYourBox = (props) => {
             <div className="line-1">
                 <div className="style-of-box-container line-1-input">
                     <label htmlFor="styleOfBox" className="form-label">Style of Box<br /></label>
-                    <input type="text" 
+                    <select  
                         list="styleOfBox"
                         className="form-input" 
                         name="styleOfBox" 
                         onChange={changeHandler} 
-                        value={form.styleOfBox} />
-                    <datalist name="styleOfBox" id="styleOfBox" className="form-input">
+                        value={form.styleOfBox}>
+                        <option value="Select an option">Select an option</option>
                         <option value="RSC">RSC</option>
                         <option value="HSC">HSC</option>
                         <option value="Tray">Tray</option>
@@ -84,23 +84,23 @@ const DesignYourBox = (props) => {
                         <option value="FOL">FOL</option>
                         <option value="Shroud">Shroud</option>
                         <option value="Die Cut">Die Cut</option>
-                    </datalist>
+                    </select>
                 </div>
                 <div className="board-grade-container line-1-input">
                     <label htmlFor="boardGrade" className="form-label">Board Grade<br /></label>
-                    <input type="text" 
+                    <select 
                         list="boardGrade" 
                         className="form-input" 
                         name="boardGrade" 
                         onChange={changeHandler} 
-                        value={form.boardGrade} />
-                    <datalist name="boardGrade" id="boardGrade" className="form-input">
+                        value={form.boardGrade}>
+                        <option value="Select an option">Select an option</option>
                         <option value="32C (single wall)">32C (single wall)</option>
                         <option value="200C (single wall)">200C (single wall)</option>
                         <option value="44C (single wall)">44C (single wall)</option>
                         <option value="48BC (double wall)">48BC (double wall)</option>
                         <option value="350BC (double wall)">350BC (double wall)</option>
-                    </datalist>
+                    </select>
                 </div>
             </div>
             <div className="line-1" style={{"marginTop": "0"}}>
@@ -142,8 +142,6 @@ const DesignYourBox = (props) => {
                 <div className="order-frequency-container line-2-input">
                     <label htmlFor="orderFrequency" className="form-label">Order Frequency<br /></label>
                     <input type="text" list="orderFrequency" className="form-input" name="orderFrequency" value={form.orderFrequency} onChange={changeHandler}/>
-                     <datalist 
-                        className="form-input" 
                         name="orderFrequency"
                         id="orderFrequency" 
                         onChange={changeHandler} 
@@ -165,29 +163,30 @@ const DesignYourBox = (props) => {
             <div className="line-1">
                 <div className="joint-construction-container line-2-input">
                     <label htmlFor="jointConstruction" className="form-label">Joint Construction<br /></label>
-                    <input type="text" 
+                    <select
                         list="jointConstruction"
                         className="form-input" 
                         name="jointConstruction" 
                         onChange={changeHandler} 
-                        value={form.jointConstruction} />
-                    <datalist name="jointConstruction" id="jointConstruction">
+                        value={form.jointConstruction} >
                         <option>Select an option</option>
                         <option value="Glued">Glued</option>
                         <option value="Flat">Flat</option>
                         <option value="Stapled">Stapled</option>
-                    </datalist>
+                    </select>
                 </div>
                 <div className="print-container line-2-input">
                     <label htmlFor="print" className="form-label">Print<br /></label>
-                    <input type="text" list="print" className="form-input" onChange={changeHandler} name="print" value={form.print} />
-                     <datalist 
+                     <select 
+                        onChange={changeHandler} 
+                        name="print" 
+                        value={form.print}
                         className="form-input" 
                         id="print" 
                         placeholder="Choose option or input custom print">
                             <option value="Standard Part Number + BMC">Standard Part Number + BMC</option>
                             <option value="Custom Print">Custom Print</option>
-                    </datalist>
+                    </select>
                 </div>
                 <div className="location-of-print-container line-2-input">
                     <label htmlFor="locationOfPrint" className="form-label">Location of Print</label>
