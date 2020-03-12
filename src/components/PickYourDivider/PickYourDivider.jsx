@@ -128,9 +128,9 @@ const PickYourDivider = (props) => {
             <h1 className="design-your-box-heading">
                 Step 4 - Pick Your Divider
             </h1>
-            <div className="button-container skip">
+            {/* <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-foam')}>Skip This Step</button>
-            </div>
+            </div> */}
             <div className="type-of-divider">
                 <label htmlFor="typeOfDivider" className="form-label">Type of Divider<br/></label>
                 <select name="typeOfDivider" id="typeOfDivider" className="form-input" value={form.corrugated.typeOfDivider} onChange={changeHandler}>

@@ -62,9 +62,9 @@ const DesignYourBoxLid = (props) => {
             <h1 className="design-your-box-heading">
                 Step 3 - Design Your Box Lid
             </h1>
-            <div className="button-container skip">
+            {/* <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/pick-your-divider')}>Skip This Step</button>
-            </div>
+            </div> */}
             <div className="line-1">
                 <div className="style-of-box-container line-1-input">
                     <label htmlFor="styleOfBoxLid" className="form-label">Style of Box Lid<br /></label>
