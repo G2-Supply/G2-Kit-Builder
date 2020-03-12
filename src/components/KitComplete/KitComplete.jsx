@@ -42,16 +42,17 @@ const KitComplete = (props) => {
         // switching isLoading to true so the loader animation shows up
         setIsLoading(true); 
 
-        axios.post(`https://g2-kit-builder.herokuapp.com/api/quote/${_id}` || `http://localhost:5000/api/quote/${_id}`, kit)
+        axios.post(`http://localhost:5000/api/quote/${_id}` || `https://g2-kit-builder.herokuapp.com/api/quote/${_id}`, kit)
             .then(res => {
+                console.log(res)
                 setMessages({
                     ...messages,
                     success: true,
                 })
-
-                setTimeout(() => {
-                    props.history.push('/start-building'); 
-                }, 3000); 
+                console.log(res)
+                // setTimeout(() => {
+                //     props.history.push('/start-building'); 
+                // }, 3000); 
 
             })
             .catch(err => {

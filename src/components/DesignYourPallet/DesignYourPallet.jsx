@@ -33,7 +33,7 @@ const DesignYourPallet = (props) => {
             deckBoardSpecialNotes: '',
         },
         plastic: {
-            typeOfPlastic: '',
+            styleOfPallet: '',
             lengthOfPallet: '',
             widthOfPallet: '',
             heightOfPallet: '',
@@ -319,14 +319,14 @@ const DesignYourPallet = (props) => {
             <div>
                 <div className="line-1">
                     <div className="style-of-runner-container line-1-input" style={{ margin: '0 auto'}}>
-                        <label htmlFor="style-of-runner" className="form-label">Style of Plastic<br /></label>
+                        <label htmlFor="style-of-runner" className="form-label">Style of Pallet<br /></label>
                         <input type="text" 
                             list="style-of-pallet" 
                             className="form-input" 
-                            name="styleOfPlastic" 
+                            name="styleOfPallet" 
                             onChange={plasticChangeHandler} 
-                            value={form.plastic.styleOfPlastic} />
-                        <datalist name="styleOfPlastic" 
+                            value={form.plastic.styleOfPallet} />
+                        <datalist name="styleOfPallet" 
                             className="form-label" 
                             id="style-of-pallet">
                             <option>Select an option</option>
