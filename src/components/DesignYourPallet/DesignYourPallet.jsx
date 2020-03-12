@@ -91,9 +91,9 @@ const DesignYourPallet = (props) => {
     return (
         <div className="design-your-pallet-container">
             <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>
-            <div className="button-container skip">
+            {/* <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box')}>Skip This Step</button>
-            </div>
+            </div> */}
             <div className="type-of-divider">
                 <label htmlFor="typeOfDivider" className="form-label">Type of Pallet<br/></label>
                 <select name="typeOfDivider" id="typeOfDivider" className="form-input" value={form.typeOfDivider} onChange={changeHandler}>

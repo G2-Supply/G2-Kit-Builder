@@ -52,9 +52,9 @@ const DesignYourFoam = (props) => {
             <h1 className="design-your-box-heading">
                 Step 5 - Design Your Foam
             </h1>
-            <div className="button-container skip">
+            {/* <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/order-details')}>Skip This Step</button>
-            </div>
+            </div> */}
             <div className="line-1" style={{"marginTop": "3rem"}}>
                 <div className="length-of-box-container line-2-input">
                     <label htmlFor="lengthOfFoam" className="form-label">Length of Foam<br /></label>

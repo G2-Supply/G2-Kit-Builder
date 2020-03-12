@@ -63,9 +63,9 @@ const DesignYourBox = (props) => {
             <h1 className="design-your-box-heading">
                 Step 2 - Design Your Box
             </h1>
-            <div className="button-container skip">
+            {/* <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box-lid')}>Skip This Step</button>
-            </div>
+            </div> */}
             <div className="line-1">
                 <div className="style-of-box-container line-1-input">
                     <label htmlFor="styleOfBox" className="form-label">Style of Box<br /></label>
