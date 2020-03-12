@@ -49,7 +49,7 @@ const DesignYourPallet = (props) => {
         // `http://localhost:5000/api/pallets/${_id}` || 
         axios.post(`https://g2-kit-builder.herokuapp.com/api/pallets/${_id}`, form)
             .then(res => {
-                console.log(res); 
+                // console.log(res); 
                 
                 props.history.push('/design-your-box'); 
             })
@@ -87,7 +87,7 @@ const DesignYourPallet = (props) => {
 
     // console.log(jwtDecode(localStorage.getItem('token')))
 
-    console.log(form); 
+    // console.log(form); 
     return (
         <div className="design-your-pallet-container">
             <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>

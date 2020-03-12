@@ -31,6 +31,7 @@ const DesignYourBox = (props) => {
         heightOfBox: '',
         boardGrade: '',
         boxSpecialNotes: '',
+        print: ''
     }); 
     
     const changeHandler = (e) => {
@@ -56,7 +57,7 @@ const DesignYourBox = (props) => {
     }
 
 
-    console.log('re-render testing', form); 
+    // console.log('re-render testing', form); 
 
     return ( 
         <div className="design-your-box-container">
