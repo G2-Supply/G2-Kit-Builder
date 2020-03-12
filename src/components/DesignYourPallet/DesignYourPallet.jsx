@@ -89,8 +89,8 @@ const DesignYourPallet = (props) => {
 
     // console.log(form); 
     return (
-        <div className="design-your-pallet-container">
-            <h1 className="step-1-heading">Step 1 - Build Your Pallet</h1>
+        <div className="design-your-pallet-container"> g
+            <h1 className="step-1-heading">Step 1 - Build Your Base</h1>
             {/* <div className="button-container skip">
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box')}>Skip This Step</button>
             </div> */}
