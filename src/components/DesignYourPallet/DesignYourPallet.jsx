@@ -31,6 +31,12 @@ const DesignYourPallet = (props) => {
             qtyOfBottomBoards: '',
             deckBoardWoodQuality: '',
             deckBoardSpecialNotes: '',
+        },
+        plastic: {
+            typeOfPlastic: '',
+            lengthOfPallet: '',
+            widthOfPallet: '',
+            heightOfPallet: '',
         }
 
     }) 
@@ -309,7 +315,71 @@ const DesignYourPallet = (props) => {
                 </div>
             </div>
              : null}
-            {form.typeOfDivider === "Plastic" ? null : null}
+            {form.typeOfDivider === "Plastic" ? 
+            <div>
+                <div className="line-1">
+                    <div className="style-of-runner-container line-1-input" style={{ margin: '0 auto'}}>
+                        <label htmlFor="style-of-runner" className="form-label">Type of Plastic<br /></label>
+                        <input type="text" 
+                            list="style-of-pallet" 
+                            className="form-input" 
+                            name="typeOfPlastic" 
+                            onChange={plasticChangeHandler} 
+                            value={form.plastic.typeOfPlastic} />
+                        <datalist name="typeOfPlastic" 
+                            className="form-label" 
+                            id="style-of-pallet">
+                            <option>Select an option</option>
+                            <option value='PVE'>PVE</option>
+                        </datalist>
+                    </div>
+                </div>
+                <div className="line-1">
+                    <div className="style-of-runner-container line-1-input">
+                        <label htmlFor="style-of-runner" className="form-label">Length Of Pallet<br /></label>
+                        <input type="text" 
+                            list="style-of-runner" 
+                            className="form-input" 
+                            name="lengthOfPallet" 
+                            onChange={plasticChangeHandler} 
+                            value={form.plastic.lengthOfPallet} />
+                        <datalist name="lengthOfPallet" 
+                            className="form-label" 
+                            id="style-of-runner">
+                                <option value='24"'>24"</option>
+                            <option value='36"'>36"</option>
+                            <option value='48"'>48"</option>
+                            <option value='60"'>60"</option>
+                            <option value='72"'>72"</option>
+                        </datalist>
+                    </div>
+                    <div className="length-of-runner-container line-1-input">
+                        <label htmlFor="length-of-runner" className="form-label">Width Of Pallet<br /></label>
+                        <input type="text" 
+                            list="length-of-runner" 
+                            className="form-input" 
+                            name="widthOfPallet" 
+                            onChange={plasticChangeHandler} 
+                            value={form.plastic.widthOfPallet} />
+                        <datalist name="widthOfPallet" className="form-label" id="length-of-runner">
+                            <option value='24"'>24"</option>
+                            <option value='36"'>36"</option>
+                            <option value='48"'>48"</option>
+                            <option value='60"'>60"</option>
+                            <option value='72"'>72"</option>
+                        </datalist>
+                    </div>
+                    <div className="qty-of-runner-container line-1-input">
+                        <label htmlFor="qty-of-runner" className="form-label">Height Of Pallet<br /></label>
+                        <input type="number" 
+                            className="form-input" 
+                            name="heightOfPallet" 
+                            onChange={plasticChangeHandler} 
+                            value={form.plastic.heightOfPallet}
+                            placeholder="Height in inches" />
+                    </div>
+                </div>          
+            </div> : null }
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
