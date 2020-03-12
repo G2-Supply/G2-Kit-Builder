@@ -47,7 +47,7 @@ const DesignYourPallet = (props) => {
 
         const _id = subject.subject; 
 
-        axios.post(`https://g2-kit-builder.herokuapp.com/api/pallets/${_id}` || `https://``http://localhost:5000/api/pallets/${_id}`, form)
+        axios.post(`http://localhost:5000/api/pallets/${_id}` || `https://g2-kit-builder.herokuapp.com/api/pallets/${_id}`, form)
             .then(res => {
                 console.log(res); 
                 
@@ -95,7 +95,7 @@ const DesignYourPallet = (props) => {
                 <button className="next-step" id="skip" onClick={() => props.history.push('/design-your-box')}>Skip This Step</button>
             </div>
             <div className="type-of-divider">
-                <label htmlFor="typeOfDivider" className="form-label">Type of Divider<br/></label>
+                <label htmlFor="typeOfDivider" className="form-label">Type of Pallet<br/></label>
                 <select name="typeOfDivider" id="typeOfDivider" className="form-input" value={form.typeOfDivider} onChange={changeHandler}>
                     <option>Select an option</option>
                     <option value="Wood">Wood</option>
@@ -319,18 +319,21 @@ const DesignYourPallet = (props) => {
             <div>
                 <div className="line-1">
                     <div className="style-of-runner-container line-1-input" style={{ margin: '0 auto'}}>
-                        <label htmlFor="style-of-runner" className="form-label">Type of Plastic<br /></label>
+                        <label htmlFor="style-of-runner" className="form-label">Style of Plastic<br /></label>
                         <input type="text" 
                             list="style-of-pallet" 
                             className="form-input" 
-                            name="typeOfPlastic" 
+                            name="styleOfPlastic" 
                             onChange={plasticChangeHandler} 
-                            value={form.plastic.typeOfPlastic} />
-                        <datalist name="typeOfPlastic" 
+                            value={form.plastic.styleOfPlastic} />
+                        <datalist name="styleOfPlastic" 
                             className="form-label" 
                             id="style-of-pallet">
                             <option>Select an option</option>
-                            <option value='PVE'>PVE</option>
+                            <option value='Nestable'>Nestable</option>
+                            <option value='Stackable'>Stackable</option>
+                            <option value='Rackable'>Rackable</option>
+                            <option value='Bulk Containers'>Bulk Containers</option>
                         </datalist>
                     </div>
                 </div>
