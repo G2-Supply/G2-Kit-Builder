@@ -11,6 +11,10 @@ import './DesignYourPallet.scss';
 import Stringer from '../../assets/images/2x4.jpg'; 
 import DeckBoard from '../../assets/images/1x6.jpg'; 
 import Question from '../../assets/images/question-64px.png'; 
+import Nestable from '../../assets/images/nestable.jpg'
+import Rackable from '../../assets/images/rackable.jpg'
+import Stackable from '../../assets/images/stackable.jpg'
+import BulkContainer from '../../assets/images/bulk-container.jpg'
 
 const DesignYourPallet = (props) => {
     // setting up form state
@@ -383,6 +387,13 @@ const DesignYourPallet = (props) => {
                     </div>
                 </div>          
             </div> : null }
+            <div style={{margin: "3rem auto 0rem auto", textAlign: "center"}}>
+                {form.plastic.styleOfPallet === "Nestable" ? <img src={Nestable} style={{height: "400px"}} /> : null }
+                {form.plastic.styleOfPallet === "Stackable" ? <img src={Stackable} style={{height: "400px"}}/> : null}
+                {form.plastic.styleOfPallet === "Rackable" ? <img src={Rackable} style={{height: "400px"}} /> : null}
+                {form.plastic.styleOfPallet === "Bulk Containers" ? <img src={BulkContainer} style={{height: "400px"}} /> : null}
+            </div>
+
             <div className="button-container">
                 <button className="next-step" onClick={saveAndContinue}>Save and Continue</button>
             </div>
