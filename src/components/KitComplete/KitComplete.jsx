@@ -16,7 +16,7 @@ const KitComplete = props => {
   const userEmail = subject.email;
   // this is temporary.  Going to use a more elegant solution with state management
   const kitId = localStorage.getItem("kitId");
-  console.log(kitId);
+  // console.log(kitId);
   // eslint-disable-next-line
   const [kit, setKit] = useState({
     kitId: kitId,
@@ -42,7 +42,7 @@ const KitComplete = props => {
     axiosWithAuth()
       .post(`${process.env.REACT_APP_AJAX_URL}/api/quote/${_id}`, kit)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         setMessages({
           ...messages,
           success: true
@@ -53,7 +53,7 @@ const KitComplete = props => {
         }, 3000);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         setTimeout(() => {
           setIsLoading(false);
           setMessages({

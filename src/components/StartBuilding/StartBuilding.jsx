@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // library imports
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+// import axios from 'axios'
 import jwtDecode from "jwt-decode";
 import Loader from "react-loader-spinner";
 
@@ -23,7 +24,7 @@ const StartBuilding = props => {
   const getStarted = () => {
     // starting the loader animation.  This is needed because the heroku backend takes several seconds to wake up once it has been inactive for a while
     setIsLoading(true);
-
+    // console.log(process.env.REACT_APP_AJAX_URL)
     axiosWithAuth()
       .post(`${process.env.REACT_APP_AJAX_URL}/api/kits/${_id}`, kit)
       .then(res => {
@@ -31,7 +32,7 @@ const StartBuilding = props => {
         props.history.push("/design-your-pallet");
       })
       .catch(err => {
-        // console.log(err);
+        console.log(err);
       });
   };
 
